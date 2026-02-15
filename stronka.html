@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moja Lista Zakupów</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, Helvetica, sans-serif;}
+
+body{
+background:#121212; /* czarne tło */
+color:#eee;
+padding:40px;
+}
+
+h1{
+display:inline-block;
+margin:0;
+font-size:36px;
+letter-spacing:2px;
+}
+
+#totalValue{
+display:inline-block;
+margin-left:20px;
+font-size:24px;
+color:#00c4cc; /* aqua */
+vertical-align:middle;
+}
+
+.category{
+margin-bottom:70px;
+}
+
+.category h2{
+margin-bottom:25px;
+font-size:22px;
+text-transform:uppercase;
+letter-spacing:2px;
+color:#eee;
+border-bottom:2px solid #333;
+padding-bottom:10px;
+}
+
+.container{
+display:grid;
+grid-template-columns:repeat(auto-fill, minmax(180px,1fr));
+gap:25px;
+}
+
+.item{
+background:#1e1e1e; /* ciemna karta */
+border-radius:20px;
+padding:15px;
+text-align:center;
+box-shadow:0 8px 20px rgba(0,0,0,0.6);
+transition:0.3s;
+text-decoration:none;
+color:#eee;
+position:relative;
+}
+
+.item:hover{
+transform:translateY(-6px);
+box-shadow:0 12px 25px rgba(0,0,0,0.8);
+}
+
+.item img{
+width:150px;
+height:150px;
+object-fit:cover;
+border-radius:15px;
+margin-bottom:15px;
+transition:0.3s;
+}
+
+.item h3{
+font-size:15px;
+min-height:40px;
+transition:0.3s;
+}
+
+.price{
+margin-top:8px;
+font-weight:bold;
+color:#00c4cc; /* aqua */
+font-size:14px;
+}
+
+.checkbox{
+position:absolute;
+top:10px;
+right:10px;
+width:20px;
+height:20px;
+cursor:pointer;
+}
+
+.item.kupione{
+opacity:0.5;
+}
+
+.item.kupione h3{
+text-decoration: line-through;
+}
+</style>
+</head>
+<body>
+
+<div style="display:flex; align-items:center; gap:30px; margin-bottom:40px;">
+  <h1 style="margin:0;">🛒 Moja Lista</h1>
+  <span id="totalValue" style="font-size:24px; color:#00c4cc;">0 zł</span>
+  <span id="remainingValue" style="font-size:24px; color:#00ff00;">0 zł</span>
+</div>
+
+<!-- ESSENTIALS -->
+<div class="category">
+<h2>Essentials</h2>
+<div class="container">
+
+<a href="https://sneakersjoint.com/produkt/fear-of-god-essentials-classic-sweatshort-jet-black/" target="_blank" class="item" data-id="essentials-spodenki" data-price="500">
+<input type="checkbox" class="checkbox">
+<img src="https://sneakersjoint.com/wp-content/uploads/2025/12/Fear-of-God-Essentials-Classic-Sweatshort-Jet-Black-1.webp">
+<h3>Essentials spodenki</h3>
+<div class="price">500 zł</div>
+</a>
+
+<a href="https://sneakersjoint.com/produkt/fear-of-god-essentials-fleece-hoodie/" target="_blank" class="item" data-id="essentials-bluza" data-price="700">
+<input type="checkbox" class="checkbox">
+<img src="https://sneakersjoint.com/wp-content/uploads/2025/10/Fear-of-God-Essentials-Fleece-Hoodie-1.webp">
+<h3>Essentials bluza</h3>
+<div class="price">700 zł</div>
+</a>
+
+</div>
+</div>
+
+<!-- BUTY -->
+<div class="category">
+<h2>Buty</h2>
+<div class="container">
+
+<a href="https://kickszone.pl/sklep/buty/nike/air-force/nike-air-force-rope-laces-white/" target="_blank" class="item" data-id="af1-rope-lace" data-price="650">
+<input type="checkbox" class="checkbox">
+<img src="https://kickszone.pl/wp-content/uploads/2025/04/air-force-rope-10-1024x1024.png">
+<h3>AF1 Rope Lace</h3>
+<div class="price">650 zł</div>
+</a>
+
+</div>
+</div>
+
+<!-- SPODNIE -->
+<div class="category">
+<h2>Spodnie</h2>
+<div class="container">
+
+<a href="https://www.zara.com/pl/pl/man-jeans-flare-l7976.html" target="_blank" class="item" data-id="zara-flared" data-price="200">
+<input type="checkbox" class="checkbox">
+<img src="https://static.zara.net/assets/public/563a/e3f2/99a4489d84b7/6c29138c8e07/05585338822-f1/05585338822-f1.jpg">
+<h3>Zara Flared</h3>
+<div class="price">200 zł</div>
+</a>
+
+</div>
+</div>
+
+<!-- AKCESORIA -->
+<div class="category">
+<h2>Akcesoria</h2>
+<div class="container">
+
+<a href="https://www.zalando.pl/calvin-klein-underwear-low-rise-trunk-3-pack-panty-black-c1152k00m-802.html" target="_blank" class="item" data-id="calvin-klein" data-price="120">
+<input type="checkbox" class="checkbox">
+<img src="https://img01.ztat.net/article/spp-media-p1/cf1e99b3542c398ea4bbd37ab84a2139/bfb17599e3bd4b4185cca5341f32478a.jpg">
+<h3>Calvin Klein</h3>
+<div class="price">120 zł</div>
+</a>
+
+<a href="https://www.douglas.pl/pl/p/3000037970?variant=544729" target="_blank" class="item" data-id="bleu-chanel" data-price="350">
+<input type="checkbox" class="checkbox">
+<img src="https://cdn.flaconi.net/media/catalog/product/3/1/3145891073508-1_c_live.jpg?r=1VwyWH&c=pl&w=1200&q=80">
+<h3>Bleu de Chanel</h3>
+<div class="price">350 zł</div>
+</a>
+
+</div>
+</div>
+
+<!-- PODZESPOŁY -->
+<div class="category">
+<h2>Podzespoły</h2>
+<div class="container">
+
+<a href="https://www.x-kom.pl/p/1138228-wentylator-do-komputera-be-quiet-light-wings-white-140-pwm-triple-pack-3x140mm.html" target="_blank" class="item" data-id="be-quiet" data-price="360">
+<input type="checkbox" class="checkbox">
+<img src="https://cdn.al.to/i/setup/images/prod/big/product-new-big,,2023/4/pr_2023_4_17_13_12_27_109_02.jpg">
+<h3>be quiet Light Wings</h3>
+<div class="price">360 zł</div>
+</a>
+
+<!-- NOWA PODKŁADKA ID GAMING -->
+<a href="https://www.idgaming.co.uk/products/liquid-white?variant=55092254933375" target="_blank" class="item" data-id="idgaming-mousepad" data-price="400">
+<input type="checkbox" class="checkbox">
+<img src="https://www.idgaming.co.uk/cdn/shop/files/NewGoliathAngle1_1d5e0597-df26-43f1-813a-102b9ceaca23.jpg?v=1744730503" alt="ID Gaming Podkładka">
+<h3>ID Gaming Podkładka</h3>
+<div class="price">400 zł</div>
+</a>
+
+</div>
+</div>
+
+<!-- SYNA WORLD -->
+<div class="category">
+<h2>Syna World</h2>
+<div class="container">
+
+<a href="https://www.syna.store/collections/new" target="_blank" class="item" data-id="syna-store" data-price="350">
+<input type="checkbox" class="checkbox">
+<img src="https://m.media-amazon.com/images/I/61+3+IHqMAL.jpg" alt="Syna Store">
+<h3>Syna Store (główna strona)</h3>
+<div class="price">450 zł</div>
+</a>
+
+</div>
+</div>
+
+<script>
+// Funkcja do liczenia całkowitej wartości i pozostałej do wydania
+function updateTotal(){
+  let total = 0;
+  let remaining = 0;
+  document.querySelectorAll('.item').forEach(item => {
+    const price = parseInt(item.dataset.price);
+    total += price;
+    if(!item.classList.contains('kupione')){
+      remaining += price;
+    }
+  });
+  document.getElementById('totalValue').textContent = 'Cała lista: ' + total + ' zł';
+  document.getElementById('remainingValue').textContent = 'Do wydania: ' + remaining + ' zł';
+}
+
+// Pobieranie stanu z LocalStorage i checkboxy
+document.querySelectorAll('.item').forEach(item => {
+  const id = item.dataset.id;
+  const checkbox = item.querySelector('.checkbox');
+
+  if(localStorage.getItem(id) === 'true'){
+    item.classList.add('kupione');
+    checkbox.checked = true;
+  }
+
+  checkbox.addEventListener('change', e=>{
+    if(e.target.checked){
+      item.classList.add('kupione');
+      localStorage.setItem(id,'true');
+    }else{
+      item.classList.remove('kupione');
+      localStorage.setItem(id,'false');
+    }
+    updateTotal(); // aktualizacja sum po zmianie
+  });
+});
+
+// Pierwsze uruchomienie sum
+updateTotal();
+</script>
