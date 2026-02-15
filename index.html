@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swieba Client Sklep</title>
+    <title>Świeba Client Sklep</title>
     <style>
         body {
             margin: 0;
@@ -11,16 +11,6 @@
             background-color: #000;
             color: white;
             text-align: center;
-        }
-
-        header {
-            padding: 50px 20px 20px 20px;
-        }
-
-        header h1 {
-            color: #3498db; /* niebieski */
-            font-size: 60px;
-            margin: 0;
         }
 
         main {
@@ -41,10 +31,9 @@
             box-shadow: 0 0 30px #3498db;
         }
 
-        .product h2 {
+        .product h2 a {
             color: #3498db;
-            font-size: 40px;
-            margin: 0;
+            text-decoration: none;
         }
 
         footer {
@@ -67,16 +56,18 @@
 </head>
 <body>
 
-   <main>
-    <div class="product">
-        <img src="images/client.png" alt="Świeba Client" style="width:400px; max-width:90%; display:block; margin:0 auto 20px auto;">
-        <h2><a href="kup.html" style="color:#3498db; text-decoration:none;">Kliknij, aby zakupić Swieba Client</a></h2>
-    </div>
-</main>
+    <main>
+        <div class="product">
+            <a href="kup.html">
+                <img src="images/client.png" alt="Świeba Client" style="width:400px; max-width:90%; display:block; margin:0 auto 20px auto;">
+            </a>
+            <h2><a href="kup.html">Kliknij, aby zakupić Świeba Client</a></h2>
+        </div>
+    </main>
 
     <footer>
         <a href="https://tiktok.com/@wvnch4j" target="_blank">TikTok wvnch4j</a>
-	<a href="https://tiktok.com/@swieb" target="_blank">TikTok swieby</a>
+        <a href="https://tiktok.com/@swieb" target="_blank">TikTok swieby</a>
         <a href="https://www.youtube.com/@wvnch4j" target="_blank">YouTube wvnch4j</a>
         <a href="https://discord.gg/RVME9AK57N" target="_blank">Nasz Discord</a>
     </footer>
