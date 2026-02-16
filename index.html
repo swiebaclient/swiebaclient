@@ -1,81 +1,337 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swieba Client Sklep</title>
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #000;
-            color: white;
-            text-align: center;
-        }
 
-        main {
-            padding: 50px 20px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swieba Client Sklep</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); /* ciemny fiolet + granat + czerń */
+    color: white;
+}
 
-        .product {
-            display: inline-block;
-            background-color: #111;
-            border: 2px solid #3498db;
-            padding: 60px 40px;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
+h1, h2 {
+    text-shadow: 0 0 10px #3498db, 0 0 20px #3498db, 0 0 30px #3498db;
+}
 
-        .product:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px #3498db;
-        }
+h1 {
+    text-align:center;
+    color:#3498db;
+    margin-top:30px;
+}
 
-        .product h2 a {
-            color: #3498db;
-            text-decoration: none;
-        }
+.container {
+    display: flex;
+    justify-content: center; /* wyśrodkowanie całego contentu */
+    gap: 30px;
+    padding: 30px;
+    align-items: flex-start;
+}
 
-        footer {
-            margin-top: 100px;
-            padding: 30px 20px;
-            border-top: 1px solid #444;
-        }
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-content: center; /* wyśrodkowanie */
+    gap: 30px;
+}
 
-        footer a {
-            color: #3498db;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 20px;
-        }
+.product {
+    background: linear-gradient(145deg, #1a1a1a, #2c2c54);
+    border: 2px solid #3498db;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
 
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff6ec7, 0 0 40px #3498db; /* różowy + niebieski neon */
+}
+.product img {
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 15px;
+}
+.product img {
+    width:100%;
+    max-width:700px;
+    margin-bottom:10px;
+}
+.product h2, .product p {
+    margin:10px 0;
+}
+button {
+    padding:10px 20px;
+    background-color:#3498db;
+    border:none;
+    color:white;
+    cursor:pointer;
+    border-radius:5px;
+    transition:0.2s;
+}
+button:hover {
+    background-color:#2980b9;
+}
+.footer {
+    margin-top: 80px;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    border-top: 2px solid #3498db;
+    text-align: center;
+}
+
+.footer h2 {
+    color: #3498db;
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px #3498db, 0 0 20px #3498db;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: 0.3s;
+    border: 1px solid #3498db;
+}
+
+.footer-links a:hover {
+    background: linear-gradient(45deg, #3498db, #9b59b6);
+    box-shadow: 0 0 15px #3498db, 0 0 30px #9b59b6;
+    transform: translateY(-3px);
+}
+
+.copyright {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* Koszyk po prawej */
+#cart {
+    flex-basis:300px;
+    background-color:#111;
+    border:2px solid #3498db;
+    padding:20px;
+    height:fit-content;
+    position:sticky;
+    top:20px;
+    border-radius:5px;
+}
+#cart h2 {
+    margin-top:0;
+    margin-bottom:15px;
+}
+#cart ul {
+    list-style:none;
+    padding-left:0;
+    max-height:400px;
+    overflow-y:auto;
+}
+#cart li {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:10px;
+    border-bottom:1px solid #3498db;
+    padding-bottom:5px;
+}
+.cart-item-info {
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.cart-item-info img {
+    width:40px;
+    height:40px;
+    object-fit:cover;
+    border:1px solid #3498db;
+    border-radius:3px;
+}
+.cart-item-info span {
+    font-size:14px;
+}
+.remove-btn {
+    background-color:red;
+    padding:3px 8px;
+    font-size:14px;
+    border:none;
+    border-radius:3px;
+    cursor:pointer;
+}
+.remove-btn:hover {
+    background-color:#aa0000;
+}
+#total {
+    font-weight:bold;
+    margin-top:10px;
+}
+#checkout-btn {
+    width:100%;
+    margin-top:10px;
+}
+</style>
 </head>
 <body>
 
-    <main>
-        <div class="product">
-            <a href="kup.html">
-                <img src="images/client.png" alt="Świeba Client" style="width:400px; max-width:90%; display:block; margin:0 auto 20px auto;">
-            </a>
-            <h2><a href="kup.html">Kliknij, aby zakupić Świeba Client</a></h2>
+<h1>Swieba Client Sklep</h1>
+
+<section style="text-align:center; margin:40px 0;">
+    <h2 style="color:#3498db;">Dlaczego warto?</h2>
+    <div style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin-top:20px;">
+        <div style="background:#111; border:2px solid #3498db; padding:20px; width:200px; border-radius:8px;">
+            <h3>Szybkość</h3>
+            <p>Klient działa płynnie i nie laguje.</p>
         </div>
-    </main>
+        <div style="background:#111; border:2px solid #3498db; padding:20px; width:200px; border-radius:8px;">
+            <h3>Przewaga</h3>
+            <p>Stajesz się lepszy od innych przez nasze wydajne mody.</p>
+        </div>
+        <div style="background:#111; border:2px solid #3498db; padding:20px; width:200px; border-radius:8px;">
+            <h3>Wsparcie</h3>
+            <p>Pomoc i aktualizacje od twórców.</p>
+        </div>
+    </div>
+</section>
 
-    <footer>
-        <a href="https://tiktok.com/@wvnch4j" target="_blank">TikTok wvnch4j</a>
-        <a href="https://tiktok.com/@swieb" target="_blank">TikTok swieby</a>
-        <a href="https://www.youtube.com/@wvnch4j" target="_blank">YouTube wvnch4j</a>
-        <a href="https://discord.gg/RVME9AK57N" target="_blank">Nasz Discord</a>
-    </footer>
 
+<div class="container">
+    <!-- Produkty -->
+    <div class="products">
+        <div class="product">
+            <img src="images/client1.png" alt="Client 1">
+            <h2>Swieba Client 1</h2>
+            <p>Cena: 30,00 zł</p>
+            <button onclick="addToCart('Swieba Client 1',30,'images/client1.png')">Dodaj do koszyka</button>
+        </div>
+        <div class="product">
+            <img src="images/client2.png" alt="Client 2">
+            <h2>Config Swieba Client</h2>
+            <p>Cena: 10,00 zł</p>
+            <button onclick="addToCart('Config Swieba Client 2',10,'images/client2.png')">Dodaj do koszyka</button>
+        </div>
+        <div class="product">
+            <img src="images/client3.png" alt="Client 3">
+            <h2>Swieba Client 3</h2>
+            <p>Cena: 40,00 zł</p>
+            <button onclick="addToCart('Swieba Client 3',40,'images/client3.png')">Dodaj do koszyka</button>
+        </div>
+    </div>
+
+    <!-- Koszyk po prawej -->
+    <div id="cart">
+        <h2>Twój koszyk</h2>
+        <ul id="cartItems"></ul>
+        <p id="total">Łączna kwota: 0 zł</p>
+        <button id="checkout-btn" onclick="checkout()">Przejdź do płatności</button>
+    </div>
+</div>
+<section style="text-align:center; margin:50px 0;">
+    <h2 style="color:#3498db;">Opinie graczy</h2>
+    <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-top:20px;">
+        <div style="background:#111; border:2px solid #3498db; padding:15px; width:250px; border-radius:8px;">
+            <p>"Najlepszy klient, jaki kiedykolwiek używałem!"</p>
+            <strong>- N3ko_S33k_PLK</strong>
+        </div>
+        <div style="background:#111; border:2px solid #3498db; padding:15px; width:250px; border-radius:8px;">
+            <p>"Świetna wydajność i prosty w obsłudze."</p>
+            <strong>- wyc1nak</strong>
+        </div>
+        <div style="background:#111; border:2px solid #3498db; padding:15px; width:250px; border-radius:8px;">
+            <p>"Polecam każdemu, kto gra w Minecrafta."</p>
+            <strong>- Histears</strong>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-content">
+        <h2>Social Media</h2>
+        <div class="footer-links">
+            <a href="https://tiktok.com/@wvnch4j" target="_blank">TikTok wvnch4j</a>
+            <a href="https://tiktok.com/@swieb" target="_blank">TikTok swieby</a>
+            <a href="https://www.youtube.com/@wvnch4j" target="_blank">YouTube wvnch4j</a>
+            <a href="https://discord.gg/RVME9AK57N" target="_blank">Nasz Discord</a>
+        </div>
+        <p class="copyright">© 2026 Świeba Client — Wszelkie prawa zastrzeżone</p>
+    </div>
+</footer>
+
+
+<script>
+let cart = [];
+
+// Dodaj produkt do koszyka
+function addToCart(name, price, img) {
+    const existing = cart.find(item => item.name===name);
+    if(existing){
+        existing.quantity +=1;
+    } else {
+        cart.push({name, price, img, quantity:1});
+    }
+    updateCart();
+}
+
+// Aktualizacja widoku koszyka
+function updateCart() {
+    const cartItems = document.getElementById('cartItems');
+    cartItems.innerHTML = '';
+    let total = 0;
+    cart.forEach((item,index)=>{
+        const li = document.createElement('li');
+
+        const info = document.createElement('div');
+        info.className='cart-item-info';
+        const img = document.createElement('img');
+        img.src = item.img;
+        const span = document.createElement('span');
+        span.textContent = item.name + ' x' + item.quantity + ' - ' + (item.price*item.quantity) + ' zł';
+        info.appendChild(img);
+        info.appendChild(span);
+
+        const removeBtn = document.createElement('button');
+        removeBtn.className='remove-btn';
+        removeBtn.textContent='✖';
+        removeBtn.onclick = ()=>{ removeFromCart(index); };
+
+        li.appendChild(info);
+        li.appendChild(removeBtn);
+        cartItems.appendChild(li);
+
+        total += item.price*item.quantity;
+    });
+    document.getElementById('total').textContent = 'Łączna kwota: ' + total + ' zł';
+}
+
+// Usuń produkt z koszyka
+function removeFromCart(index){
+    cart.splice(index,1);
+    updateCart();
+}
+
+// Przejście do płatności w innym pliku
+function checkout(){
+    if(cart.length===0){
+        alert('Twój koszyk jest pusty!');
+        return;
+    }
+
+    // Zapisz koszyk do localStorage, żeby przenieść na inną stronę
+    localStorage.setItem('cartData', JSON.stringify(cart));
+    window.location.href='kup.html';
+}
+</script>
 </body>
 </html>
-
-
-

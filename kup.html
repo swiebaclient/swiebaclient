@@ -3,18 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koszyk - Swieba Client</title>
-	<link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <title>Kup Świeba Client</title>
     <style>
-        body {
+
+    body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #000;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); /* ciemny fiolet + granat + czerń */
             color: white;
             text-align: center;
             padding: 50px 20px;
         }
+
+}
+
+h1, h2 {
+    text-shadow: 0 0 10px #3498db, 0 0 20px #3498db, 0 0 30px #3498db;
+}
 
         h1 {
             color: #3498db;
@@ -23,13 +28,12 @@
         }
 
         .payment {
-            background-color: #111;
-            border: 2px solid #3498db;
-            padding: 40px 30px;
-            margin: 20px auto;
-            width: 300px;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+           background: linear-gradient(145deg, #1a1a1a, #2c2c54);
+    border: 2px solid #3498db;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .payment:hover {
@@ -99,7 +103,7 @@
 </head>
 <body>
 
-	<h1>Koszt płatności: 30,00zł</h1>
+	<h1>Wybierz forme płatności</h1>
 
     <div class="payment" onclick="window.open('https://tipply.pl/@wvnch4j','_blank')">
         <img src="images/paypal.png" alt="PayPal">
@@ -158,4 +162,3 @@
 
 </body>
 </html>
-
