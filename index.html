@@ -1,347 +1,325 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-<title>Sklep Swieba Client</title>
+<title>Swieba Client</title>
 <style>
+/* --- Global --- */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); /* ciemny fiolet + granat + czerń */
-    color: white;
+    background: #f8f9fa;
+    color: #212529;
+    transition: background 0.3s, color 0.3s;
+    scroll-behavior: smooth;
 }
+body.dark-theme { background: #121212; color: #e0e0e0; }
 
-h1, h2 {
-    text-shadow: 0 0 10px #3498db, 0 0 20px #3498db, 0 0 30px #3498db;
-}
-
-h1 {
-    text-align:center;
-    color:#3498db;
-    margin-top:30px;
-}
-
-.container {
+/* --- Header --- */
+header {
     display: flex;
-    justify-content: center; /* wyśrodkowanie całego contentu */
-    gap: 30px;
-    padding: 30px;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px 10px 20px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    z-index: 10;
+    transition: background 0.3s, border-color 0.3s;
+}
+body.dark-theme header { background: #1e1e1e; border-color: #333; }
+
+header .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+header .logo-container img {
+    width: 50px;
+    height: 50px;
+}
+header .logo-container span {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
+header nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+    cursor: pointer;
+}
+header nav a:hover { color: #007bff; }
+
+#theme-toggle {
+    padding: 6px 12px;
+    cursor: pointer;
+    border: 1px solid #212529;
+    border-radius: 4px;
+    background: #fff;
+    transition: background 0.3s, color 0.3s;
+}
+body.dark-theme #theme-toggle {
+    background: #333;
+    color: #e0e0e0;
+    border-color: #e0e0e0;
+}
+
+/* --- Koszyk przyklejony w prawym górnym rogu, poniżej headera --- */
+#cart {
+    position: fixed;
+    top: 80px; /* przesunięcie w dół, żeby przycisk motywu był widoczny */
+    right: 20px;
+    width: 300px;
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 20px;
+    height: fit-content;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: background 0.3s, border-color 0.3s;
+}
+body.dark-theme #cart { background: #1e1e1e; border-color: #444; }
+
+/* --- Sekcja O nas --- */
+.about {
+    padding: 100px 20px 80px 20px;
+    text-align:center;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+.about h2 { margin-bottom:20px; }
+.about p { max-width:800px; margin:auto; font-size:1.1rem; line-height:1.6; }
+
+/* --- Produkty --- */
+.products-section { padding: 60px 20px; transition: transform 0.6s ease, opacity 0.6s ease; }
+.products-section h2 { text-align:center; margin-bottom:30px; }
 .products {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    justify-content: center; /* wyśrodkowanie */
-    gap: 30px;
+    gap: 20px;
 }
-
 .product {
-    background: linear-gradient(145deg, #1a1a1a, #2c2c54);
-    border: 2px solid #3498db;
-    padding: 30px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
     text-align: center;
-    border-radius: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
 }
-
-.product:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #ff6ec7, 0 0 40px #3498db; /* różowy + niebieski neon */
-}
-.product img {
-    width: 100%;
-    max-width: 250px;
-    margin-bottom: 15px;
-}
-.product img {
-    width:100%;
-    max-width:700px;
-    margin-bottom:10px;
-}
-.product h2, .product p {
-    margin:10px 0;
-}
-button {
-    padding:10px 20px;
-    background-color:#3498db;
-    border:none;
-    color:white;
-    cursor:pointer;
-    border-radius:5px;
-    transition:0.2s;
-}
-button:hover {
-    background-color:#2980b9;
-}
-.footer {
-    margin-top: 80px;
-    padding: 50px 20px;
-    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-    border-top: 2px solid #3498db;
-    text-align: center;
-}
-
-.footer h2 {
-    color: #3498db;
-    margin-bottom: 25px;
-    text-shadow: 0 0 10px #3498db, 0 0 20px #3498db;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-bottom: 25px;
-}
-
-.footer-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
+body.dark-theme .product { background:#1e1e1e; border-color:#444; }
+.product:hover { transform: translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
+.product img { width:100%; max-width:250px; margin-bottom:10px; }
+.product h2 { font-size:1.2rem; margin-bottom:10px; }
+.product p { margin:10px 0; }
+.product button {
     padding: 10px 15px;
-    border-radius: 6px;
-    transition: 0.3s;
-    border: 1px solid #3498db;
-}
-
-.footer-links a:hover {
-    background: linear-gradient(45deg, #3498db, #9b59b6);
-    box-shadow: 0 0 15px #3498db, 0 0 30px #9b59b6;
-    transform: translateY(-3px);
-}
-
-.copyright {
-    font-size: 14px;
-    opacity: 0.7;
-}
-
-/* Koszyk po prawej */
-#cart {
-    flex-basis:300px;
-    background-color:#111;
-    border:2px solid #3498db;
-    padding:20px;
-    height:fit-content;
-    position:sticky;
-    top:20px;
-    border-radius:5px;
-}
-#cart h2 {
-    margin-top:0;
-    margin-bottom:15px;
-}
-#cart ul {
-    list-style:none;
-    padding-left:0;
-    max-height:400px;
-    overflow-y:auto;
-}
-#cart li {
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:10px;
-    border-bottom:1px solid #3498db;
-    padding-bottom:5px;
-}
-.cart-item-info {
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-.cart-item-info img {
-    width:40px;
-    height:40px;
-    object-fit:cover;
-    border:1px solid #3498db;
-    border-radius:3px;
-}
-.cart-item-info span {
-    font-size:14px;
-}
-.remove-btn {
-    background-color:red;
-    padding:3px 8px;
-    font-size:14px;
-    border:none;
-    border-radius:3px;
+    border:1px solid #212529;
+    background:#f5f5f5;
     cursor:pointer;
+    border-radius:5px;
+    transition: background 0.2s;
 }
-.remove-btn:hover {
-    background-color:#aa0000;
+body.dark-theme .product button { background:#333; color:#e0e0e0; border-color:#e0e0e0; }
+.product button:hover { background:#ddd; }
+body.dark-theme .product button:hover { background:#444; }
+
+/* --- Opinie --- */
+.reviews {
+    padding:60px 20px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    transition: transform 0.6s ease, opacity 0.6s ease;
 }
-#total {
-    font-weight:bold;
-    margin-top:10px;
+.review {
+    background:#fff;
+    border:1px solid #ddd;
+    padding:20px;
+    width:250px;
+    border-radius:8px;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
 }
-#checkout-btn {
-    width:100%;
-    margin-top:10px;
+body.dark-theme .review { background:#1e1e1e; border-color:#444; }
+.review:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
+.review p { margin-bottom:10px; font-style:italic; }
+.review strong { display:block; margin-top:5px; text-align:right; }
+
+/* --- Kontakt / linki --- */
+.contact {
+    padding:60px 20px;
+    text-align:center;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+.contact h2 { margin-bottom:30px; }
+.contact-links { display:flex; flex-direction:column; align-items:center; gap:10px; }
+.contact-links a { text-decoration:none; color:#007bff; font-weight:500; }
+body.dark-theme .contact-links a { color:#4ea1ff; }
+.contact-links span { font-size:0.9rem; color:#555; }
+body.dark-theme .contact-links span { color:#aaa; }
+
+/* --- Layout ogólny --- */
+.container { display:flex; gap:20px; padding:20px; flex-wrap:wrap; }
+.products-wrapper { flex:1; }
+
+/* --- Footer --- */
+footer { text-align:center; padding:30px 20px; border-top:1px solid #ddd; margin-top:40px; }
+body.dark-theme footer { border-color:#444; }
+
+/* --- Responsywność --- */
+@media(max-width:900px){
+    .container { flex-direction:column; }
+    #cart { width:90%; top:100px; right:5%; }
+    .products { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
-<h1>Swieba Client Sklep</h1>
-
-<section style="text-align:center; margin:40px 0;">
-    <h2 style="color:#3498db;">Dlaczego warto?</h2>
-    <div style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin-top:20px;">
-        <div style="background:#111; border:2px solid #3498db; padding:20px; width:200px; border-radius:8px;">
-            <h3>Szybkość</h3>
-            <p>Klient działa płynnie i nie laguje.</p>
-        </div>
-        <div style="background:#111; border:2px solid #3498db; padding:20px; width:200px; border-radius:8px;">
-            <h3>Przewaga</h3>
-            <p>Stajesz się lepszy od innych przez nasze wydajne mody.</p>
-        </div>
-        <div style="background:#111; border:2px solid #3498db; padding:20px; width:200px; border-radius:8px;">
-            <h3>Wsparcie</h3>
-            <p>Pomoc i aktualizacje od twórców.</p>
-        </div>
+<header>
+    <div class="logo-container">
+        <img src="images/logo.png" alt="Logo">
+        <span>Swieba Client</span>
     </div>
-</section>
+    <nav>
+        <a href="#about" class="nav-link">O nas</a>
+        <a href="#reviews" class="nav-link">Opinie</a>
+        <a href="#contact" class="nav-link">Kontakt</a>
+    </nav>
+    <button id="theme-toggle">Ciemny motyw</button>
+</header>
 
+<!-- Koszyk -->
+<div id="cart">
+    <h2>Twój koszyk</h2>
+    <ul id="cartItems"></ul>
+    <p id="total">Łączna kwota: 0 zł</p>
+    <button id="checkout-btn" onclick="checkout()">Przejdź do płatności</button>
+</div>
+
+<section class="about" id="about">
+    <h2>O Swieba Client</h2>
+    <p>Swieba Client to profesjonalny klient do Minecrafta 1.8.9, oferujący szybkie działanie, intuicyjne mody i konfigurowalne opcje. Dzięki niemu gracze zyskują przewagę w rozgrywce, komfort użytkowania oraz wsparcie i aktualizacje od twórców.</p>
+</section>
 
 <div class="container">
-    <!-- Produkty -->
-    <div class="products">
-        <div class="product">
-            <img src="images/client1.png" alt="Client 1">
-            <h2>Swieba Client </h2>
-            <p>Cena: 30,00 zł</p>
-            <button onclick="addToCart('Swieba Client',30,'images/client1.png')">Dodaj do koszyka</button>
-        </div>
-        <div class="product">
-            <img src="images/client2.png" alt="Client 2">
-            <h2>Config Swieba Client</h2>
-            <p>Cena: 10,00 zł</p>
-            <button onclick="addToCart('Config Swieba Client',10,'images/client2.png')">Dodaj do koszyka</button>
-        </div>
-        <div class="product">
-            <img src="images/client3.png" alt="Client 3">
-            <h2>txt na zamówienie</h2>
-            <h3>*opłata w wysokości 20-50zl wpływa na jakość wykonanego txt</h3>
-            <h4>*należy opisać swoje wymagania do txt w tickecie na discordzie</h4>
-            <p>Cena: 20,00 - 50,00zł</p>
-            <button onclick="addToCart('Teksturepack na zamówienie 20-50zł',0,'images/client3.png')">Dodaj do koszyka</button>
-        </div>
-    </div>
-
-    <!-- Koszyk po prawej -->
-    <div id="cart">
-        <h2>Twój koszyk</h2>
-        <ul id="cartItems"></ul>
-        <p id="total">Łączna kwota: 0 zł</p>
-        <button id="checkout-btn" onclick="checkout()">Przejdź do płatności</button>
+    <div class="products-wrapper">
+        <section class="products-section">
+            <h2>Produkty</h2>
+            <div class="products">
+                <div class="product">
+                    <img src="images/client1.png" alt="Client 1">
+                    <h2>Swieba Client</h2>
+                    <p>Cena: 30,00 zł</p>
+                    <button onclick="addToCart('Swieba Client',30,'images/client1.png')">Dodaj do koszyka</button>
+                </div>
+                <div class="product">
+                    <img src="images/client2.png" alt="Client 2">
+                    <h2>Config Swieba Client</h2>
+                    <p>Cena: 10,00 zł</p>
+                    <button onclick="addToCart('Config Swieba Client',10,'images/client2.png')">Dodaj do koszyka</button>
+                </div>
+                <div class="product">
+                    <img src="images/client3.png" alt="Client 3">
+                    <h2>Teksturepack na zamówienie</h2>
+                    <p>Opłata: 20-50 zł (wpisz kwotę po kliknięciu)</p>
+                    <button onclick="addCustomTxt()">Dodaj do koszyka</button>
+                </div>
+            </div>
+        </section>
     </div>
 </div>
-<section style="text-align:center; margin:50px 0;">
-    <h2 style="color:#3498db;">Opinie graczy</h2>
-    <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-top:20px;">
-        <div style="background:#111; border:2px solid #3498db; padding:15px; width:250px; border-radius:8px;">
-            <p>"Najlepszy klient, jaki kiedykolwiek używałem!"</p>
-            <strong>- N3ko_S33k_PLK</strong>
-        </div>
-        <div style="background:#111; border:2px solid #3498db; padding:15px; width:250px; border-radius:8px;">
-            <p>"Świetna wydajność i prosty w obsłudze."</p>
-            <strong>- wyc1nak</strong>
-        </div>
-        <div style="background:#111; border:2px solid #3498db; padding:15px; width:250px; border-radius:8px;">
-            <p>"Polecam każdemu, kto gra w Minecrafta1.8.9."</p>
-            <strong>- Histears</strong>
-        </div>
+
+<section class="reviews" id="reviews">
+    <div class="review">
+        <p>"Najlepszy klient, jaki kiedykolwiek używałem!"</p>
+        <strong>- N3ko_S33k_PLK</strong>
+    </div>
+    <div class="review">
+        <p>"Świetna wydajność i prosty w obsłudze."</p>
+        <strong>- wyc1nak</strong>
+    </div>
+    <div class="review">
+        <p>"Polecam każdemu, kto gra w Minecrafta 1.8.9."</p>
+        <strong>- Histears</strong>
     </div>
 </section>
 
-<footer class="footer">
-    <div class="footer-content">
-        <h2>Social Media</h2>
-        <div class="footer-links">
-            <a href="https://tiktok.com/@wvnch4j" target="_blank">TikTok wvnch4j</a>
-            <a href="https://tiktok.com/@swieb" target="_blank">TikTok swieby</a>
-            <a href="https://www.youtube.com/@wvnch4j" target="_blank">YouTube wvnch4j</a>
-            <a href="https://discord.gg/RVME9AK57N" target="_blank">Nasz Discord</a>
-        </div>
-        <p class="copyright">© 2026 Swieba Client — Wszelkie prawa zastrzeżone</p>
+<section class="contact" id="contact">
+    <h2>Kontakt / Linki</h2>
+    <div class="contact-links">
+        <div><a href="https://tiktok.com/@wvnch4j" target="_blank">TikTok wvnch4j</a> <span>Twórca Swieba Client</span></div>
+        <div><a href="https://tiktok.com/@swieb" target="_blank">TikTok swieby</a> <span>Współtwórca / konfiguracje</span></div>
+        <div><a href="https://www.youtube.com/@wvnch4j" target="_blank">YouTube wvnch4j</a> <span>Prezentacje i poradniki</span></div>
+        <div><a href="https://discord.gg/RVME9AK57N" target="_blank">Nasz Discord</a> <span>Wsparcie i kontakt</span></div>
     </div>
+</section>
+
+<footer>
+    <p>© 2026 Swieba Client</p>
 </footer>
 
-
 <script>
+// --- Motyw ciemny ---
+document.getElementById('theme-toggle').addEventListener('click',()=>{
+    document.body.classList.toggle('dark-theme');
+});
+
+// --- Koszyk ---
 let cart = [];
-
-// Dodaj produkt do koszyka
-function addToCart(name, price, img) {
-    const existing = cart.find(item => item.name===name);
-    if(existing){
-        existing.quantity +=1;
-    } else {
-        cart.push({name, price, img, quantity:1});
-    }
+function addToCart(name, price, img){
+    const existing = cart.find(item=>item.name===name);
+    if(existing){ existing.quantity +=1; } else{ cart.push({name, price, img, quantity:1}); }
     updateCart();
 }
-
-// Aktualizacja widoku koszyka
-function updateCart() {
-    const cartItems = document.getElementById('cartItems');
-    cartItems.innerHTML = '';
-    let total = 0;
+function addCustomTxt(){
+    let price = prompt("Podaj kwotę za teksturę (20-50 zł):");
+    price=parseFloat(price);
+    if(price<20 || price>50 || isNaN(price)){ alert("Nieprawidłowa kwota!"); return; }
+    addToCart('Teksturepack na zamówienie', price, 'images/client3.png');
+}
+function updateCart(){
+    const cartItems=document.getElementById('cartItems'); cartItems.innerHTML='';
+    let total=0;
     cart.forEach((item,index)=>{
-        const li = document.createElement('li');
-
-        const info = document.createElement('div');
-        info.className='cart-item-info';
-        const img = document.createElement('img');
-        img.src = item.img;
-        const span = document.createElement('span');
-        span.textContent = item.name + ' x' + item.quantity + ' - ' + (item.price*item.quantity) + ' zł';
-        info.appendChild(img);
-        info.appendChild(span);
-
-        const removeBtn = document.createElement('button');
-        removeBtn.className='remove-btn';
-        removeBtn.textContent='✖';
-        removeBtn.onclick = ()=>{ removeFromCart(index); };
-
-        li.appendChild(info);
-        li.appendChild(removeBtn);
+        const li=document.createElement('li');
+        const info=document.createElement('div'); info.className='cart-item-info';
+        const img=document.createElement('img'); img.src=item.img;
+        const span=document.createElement('span'); span.textContent=`${item.name} x${item.quantity} - ${item.price*item.quantity} zł`;
+        info.appendChild(img); info.appendChild(span);
+        const removeBtn=document.createElement('button'); removeBtn.className='remove-btn'; removeBtn.textContent='✖';
+        removeBtn.onclick=()=>{ removeFromCart(index); };
+        li.appendChild(info); li.appendChild(removeBtn);
         cartItems.appendChild(li);
-
-        total += item.price*item.quantity;
+        total+=item.price*item.quantity;
     });
-    document.getElementById('total').textContent = 'Łączna kwota: ' + total + ' zł';
+    document.getElementById('total').textContent='Łączna kwota: '+total+' zł';
 }
-
-// Usuń produkt z koszyka
-function removeFromCart(index){
-    cart.splice(index,1);
-    updateCart();
-}
-
-// Przejście do płatności w innym pliku
-function checkout(){
-    if(cart.length===0){
-        alert('Twój koszyk jest pusty!');
-        return;
-    }
-
-    // Zapisz koszyk do localStorage, żeby przenieść na inną stronę
+function removeFromCart(index){ cart.splice(index,1); updateCart(); }
+function checkout(){ 
+    if(cart.length===0){ alert('Twój koszyk jest pusty!'); return; }
     localStorage.setItem('cartData', JSON.stringify(cart));
     window.location.href='kup.html';
 }
+
+// --- Płynne scrollowanie z przybliżeniem ---
+document.querySelectorAll('.nav-link').forEach(link=>{
+    link.addEventListener('click', e=>{
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        target.scrollIntoView({behavior:'smooth'});
+        target.style.transform='scale(1.05)';
+        target.style.opacity='0.9';
+        setTimeout(()=>{ target.style.transform='scale(1)'; target.style.opacity='1'; }, 600);
+    });
+});
 </script>
+
 </body>
 </html>
-
-
-
-
-
-
