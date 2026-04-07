@@ -308,12 +308,7 @@ document.getElementById('theme-toggle').addEventListener('click',()=>{
 // 🔥 LICZNIK (NAPRAWIONY)
 const API_KEY = "ut_DQClYMSYL5BaWT3gGyMATWyE97crOKmgKl7TaRk4";
 
-fetch("https://api.counterapi.dev/v2/cerek-companys-team-3637/swieba-client/up", {
-    method: "GET",
-    headers: {
-        "Authorization": "Bearer " + API_KEY
-    }
-})
+fetch("https://api.counterapi.dev/v2/cerek-companys-team-3637/swieba-client/up")
 .then(res => res.json())
 .then(data => {
     let count = data.data.up_count;
