@@ -1,622 +1,278 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="images/favicon.png">
-<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-<title>Swieba Client</title>
-<style>
-/* --- Global --- */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f8f9fa;
-    color: #212529;
-    transition: background 0.3s, color 0.3s;
-    scroll-behavior: smooth;
-}
-body.dark-theme { background: #121212; color: #e0e0e0; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <title>SwiebaClient | Next Gen Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: #0a0a0c; color: white; overflow-x: hidden; min-height: 100vh; }
 
-/* --- Header --- */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 40px 10px 20px;
-    background: #fff;
-    border-bottom: 1px solid #ddd;
+        .bg-gradient { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, rgba(0, 162, 255, 0.1) 0%, #0a0a0c 100%); z-index: -1; }
+        .blob { position: absolute; width: 600px; height: 600px; background: rgba(0, 212, 255, 0.15); filter: blur(100px); border-radius: 50%; z-index: -1; animation: move 15s infinite alternate ease-in-out; }
+        @keyframes move { from { transform: translate(-20%, -20%); } to { transform: translate(40%, 30%); } }
+
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 30px 10%; position: relative; z-index: 10; }
+        .logo { font-size: 1.8rem; font-weight: 900; background: linear-gradient(90deg, #fff, #00a2ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
+        .nav-links a { color: #ccc; text-decoration: none; font-size: 0.9rem; transition: 0.3s; cursor: pointer; }
+        .nav-links a:hover { color: #00a2ff; }
+        .nav-socials { display: flex; gap: 15px; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 15px; }
+
+        .stats-sidebar { position: absolute; top: 120px; left: 5%; z-index: 5; display: flex; flex-direction: column; gap: 15px; }
+        .stats-item { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(15px); border: 1px solid rgba(0, 162, 255, 0.2); border-left: 4px solid #00a2ff; padding: 12px 20px; border-radius: 0 20px 20px 0; min-width: 180px; }
+        .stats-item span { display: block; font-size: 1.2rem; font-weight: 900; color: #fff; }
+        .stats-item small { color: #888; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+        .stats-item i { color: #00a2ff; margin-right: 5px; }
+
+        .instruction-sidebar { position: absolute; top: 120px; right: 5%; z-index: 5; display: flex; flex-direction: column; gap: 15px; }
+        .instruction-item { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(15px); border: 1px solid rgba(0, 162, 255, 0.2); border-right: 4px solid #00a2ff; padding: 15px 20px; border-radius: 20px 0 0 20px; text-align: right; max-width: 250px; }
+        .btn-sidebar-dc { display: inline-flex; align-items: center; gap: 8px; padding: 8px 15px; background: #00a2ff; color: white; text-decoration: none; border-radius: 10px; font-size: 0.75rem; font-weight: bold; }
+
+        .hero { padding: 40px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+        h1 { font-size: clamp(2.5rem, 8vw, 5rem); text-transform: uppercase; font-weight: 900; margin-bottom: 20px; }
+        
+        .hero-main-layout { display: flex; align-items: center; justify-content: center; gap: 60px; margin: 40px 0; flex-wrap: wrap; max-width: 1000px; }
+        .project-info-flat { max-width: 350px; text-align: left; }
+        .project-info-flat h4 { color: #00a2ff; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; font-size: 1.2rem; }
+        .project-info-flat p { color: #aaa; font-size: 0.95rem; line-height: 1.6; }
+        .project-info-flat span { color: #fff; font-weight: 700; }
+
+        .skin-render-box { width: 550px; animation: float 4s ease-in-out infinite; }
+        .skin-render-box img { width: 100%; filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.4)); }
+
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        .pricing-container { display: flex; gap: 25px; justify-content: center; flex-wrap: wrap; width: 100%; max-width: 1400px; }
+        .price-card { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 30px; width: 260px; transition: 0.4s; display: flex; flex-direction: column; }
+        .price-card:hover { transform: translateY(-10px); border-color: #00a2ff; }
+        .cost { font-size: 2.5rem; font-weight: 900; color: #00a2ff; margin: 15px 0; }
+        .price-card ul { list-style: none; text-align: left; margin-bottom: 30px; color: #aaa; font-size: 0.85rem; flex-grow: 1; }
+        .price-card ul li::before { content: "✓ "; color: #00a2ff; font-weight: bold; }
+        .btn-buy { display: block; padding: 15px; background: linear-gradient(45deg, #0077ff, #00d4ff); color: white; border-radius: 50px; font-weight: bold; cursor: pointer; border: none; width: 100%; transition: 0.3s; }
+
+        .reviews-section { width: 100%; overflow: hidden; margin: 60px 0; position: relative; }
+        .marquee { display: flex; gap: 30px; width: max-content; animation: scroll 15s linear infinite; }
+        .review-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(0, 162, 255, 0.1); padding: 25px; border-radius: 20px; width: 320px; flex-shrink: 0; }
+        .stars { color: #ffca28; margin-bottom: 10px; font-size: 0.8rem; }
+        
+        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 15px)); } }
+
+        .media-header { text-align: center; margin-top: 40px; text-transform: uppercase; font-weight: 900; letter-spacing: 2px; color: rgba(255,255,255,0.6); font-size: 1.1rem; }
+
+        .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; max-width: 600px; margin: 20px auto 50px; }
+        .tile { height: 100px; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 30px; color: white; transition: 0.3s; text-decoration: none; }
+        .tiktok { background: #111; } .youtube { background: #f00; } .discord { background: #5865f2; }
+        .tile:hover { transform: scale(1.05); }
+
+        #purchase-view { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; }
+        .purchase-card { background: #111; padding: 40px; border-radius: 30px; border: 1px solid #00a2ff; text-align: center; width: 90%; max-width: 400px; }
+        .purchase-card input { width: 100%; padding: 15px; margin: 20px 0; border-radius: 10px; border: 1px solid #333; background: #000; color: white; text-align: center; outline: none; }
+
+.stats-item {
     position: relative;
-    z-index: 10;
-    transition: background 0.3s, border-color 0.3s;
+    padding-top: 35px; 
 }
-body.dark-theme header { background: #1e1e1e; border-color: #333; }
-
-header .logo-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-header .logo-container img {
-    width: 50px;
-    height: 50px;
-}
-header .logo-container span {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-header nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: inherit;
-    font-weight: 500;
-    cursor: pointer;
-}
-header nav a:hover { color: #007bff; }
-
-#theme-toggle {
-    padding: 6px 12px;
-    cursor: pointer;
-    border: 1px solid #212529;
-    border-radius: 4px;
-    background: #fff;
-    transition: background 0.3s, color 0.3s;
-}
-body.dark-theme #theme-toggle {
-    background: #333;
-    color: #e0e0e0;
-    border-color: #e0e0e0;
-}
-
-/* --- Sekcja O nas --- */
-.about {
-    padding: 100px 20px 80px 20px;
-    text-align:center;
-    transition: transform 0.6s ease, opacity 0.6s ease;
-}
-.about h2 { margin-bottom:20px; }
-.about p { max-width:800px; margin:auto; font-size:1.1rem; line-height:1.6; }
-
-/* --- Produkty --- */
-
-.products-section,
-.reviews {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease;
-}
-
-.products-section.show,
-.reviews.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.products-section { padding: 60px 20px; transition: transform 0.6s ease, opacity 0.6s ease; }
-.products-section h2 { text-align:center; margin-bottom:30px; }
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-.product {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
-}
-body.dark-theme .product { background:#1e1e1e; border-color:#444; }
-.product:hover { transform: translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
-.product img { width:100%; max-width:250px; margin-bottom:10px; }
-.product h2 { font-size:1.2rem; margin-bottom:10px; }
-.product p { margin:10px 0; }
-.product button {
-    padding: 10px 15px;
-    border:1px solid #212529;
-    background:#f5f5f5;
-    cursor:pointer;
-    border-radius:5px;
-    transition: background 0.2s;
-}
-body.dark-theme .product button { background:#333; color:#e0e0e0; border-color:#e0e0e0; }
-.product button:hover { background:#ddd; }
-body.dark-theme .product button:hover { background:#444; }
-
-/* --- Opinie --- */
-.reviews {
-    padding:60px 20px;
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-    transition: transform 0.6s ease, opacity 0.6s ease;
-}
-.review {
-    background:#fff;
-    border:1px solid #ddd;
-    padding:20px;
-    width:250px;
-    border-radius:8px;
-    transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
-}
-body.dark-theme .review { background:#1e1e1e; border-color:#444; }
-.review:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
-.review p { margin-bottom:10px; font-style:italic; }
-.review strong { display:block; margin-top:5px; text-align:right; }
-
-/* --- Kontakt / linki --- */
-.contact {
-    padding:60px 20px;
-    text-align:center;
-    transition: transform 0.6s ease, opacity 0.6s ease;
-}
-.contact h2 { margin-bottom:30px; }
-.contact-links { display:flex; flex-direction:column; align-items:center; gap:10px; }
-.contact-links a { text-decoration:none; color:#007bff; font-weight:500; }
-body.dark-theme .contact-links a { color:#4ea1ff; }
-.contact-links span { font-size:0.9rem; color:#555; }
-body.dark-theme .contact-links span { color:#aaa; }
-
-
-/* --- Layout ogólny --- */
-.container { display:flex; gap:20px; padding:20px; flex-wrap:wrap; }
-.products-wrapper { flex:1; }
-
-.grass {
+.stats-logo {
     position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    background: repeating-linear-gradient(
-        90deg,
-        #2ecc71,
-        #2ecc71 10px,
-        #27ae60 10px,
-        #27ae60 20px
-    );
+    top: 8px;
+    right: 10px;
+    width: 18px;
+    height: 18px;
+    opacity: 0.9;
 }
 
-
-/* --- Footer --- */
-footer { text-align:center; padding:30px 20px; border-top:1px solid #ddd; margin-top:40px; }
-body.dark-theme footer { border-color:#444; }
-
-/* --- Responsywność --- */
-@media(max-width:900px){
-    .container { flex-direction:column; }
-    #cart { width:90%; top:100px; right:5%; }
-    .products { grid-template-columns: 1fr; }
-}
-
-.social-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    padding: 20px;
-}
-
-.tile {
-    position: relative;
-    height: 150px;
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-}
-
-/* overlay (pixel vibe) */
-.overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-        45deg,
-        rgba(255,255,255,0.04) 0px,
-        rgba(255,255,255,0.04) 10px,
-        transparent 10px,
-        transparent 20px
-    );
-}
-
-/* hover */
-.tile:hover {
-    transform: scale(1.05) rotate(1deg);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-}
-
-/* ikony */
-.icon {
-    width: 50px;
-    height: 50px;
-    z-index: 2;
-}
-
-.big {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 10px;
-}
-
-/* kolory */
-.tiktok { background: #1c1c1c; }
-.youtube { background: #ff0000; }
-.instagram { background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af); }
-.discord { background: linear-gradient(135deg,#B083DE,#631CAD); }
-
-/* discord tekst */
-.content {
-    z-index: 2;
-    text-align: center;
-    color: white;
-    font-size: 14px;
-}
-
-.contact-links svg {
-    width: 70px;
-    height: 70px;
-    display: block;
-}
-
-.contact-links a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.discord-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-
-    height: 150px;
-    border-radius: 15px;
-
-    background: linear-gradient(135deg, #2a8cff, #1f6ed4);
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-
-    position: relative;
-    overflow: hidden;
-}
-
-.discord-box, .social-box {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.discord-box:hover, .social-box:hover {
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-/* Ikona */
-.discord-box svg {
-    width: 60px;
-    height: 60px;
-    display: block;
-}
-
-.discord-box span {
-    text-align: center;
-    font-size: 14px;
-}
-
-.contact {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease;
-}
-
-.contact.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.stats {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    padding: 40px;
-}
-.stats div {
-    text-align: center;
-}
-
-.sword {
-    position: fixed;
-    top: -50px;
-    font-size: 20px;
-    pointer-events: none;
-    animation: fall linear forwards;
-    opacity: 0.8;
-}
-
-@keyframes fall {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-</style>
+        footer { text-align: center; padding: 30px; color: #444; font-size: 0.8rem; }
+    </style>
 </head>
 <body>
+    <div class="bg-gradient"></div>
+    <div class="blob"></div>
 
-<header>
-    <div class="logo-container">
-        <img src="images/logo.png" alt="Logo">
-        <span>Swieba Client</span>
-    </div>
     <nav>
-        <a href="#about" class="nav-link">O nas</a>
-        <a href="#reviews" class="nav-link">Opinie</a>
-        <a href="#contact" class="nav-link">Kontakt</a>
+	
+        <div class="logo">SWIEBACLIENT</div>
+        <ul class="nav-links">
+            <li><a onclick="location.reload()">Home</a></li>
+            <div class="nav-socials">
+                <a href="https://discord.gg/a93ZKKQkfx" target="_blank"><i class="fab fa-discord"></i></a>
+                <a href="https://tiktok.com/@wvnch4j" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://youtube.com/@wvnch4j" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </ul>
     </nav>
-    <button id="theme-toggle">Ciemny motyw</button>
-</header>
 
-<div class="stats">
-    <div><h3>🔥 100+</h3><p>Użytkowników nam zaufało</p></div>
-    <div><h3>⭐ 4.9</h3><p>Ocena Użytkowników</p></div>
-    <div><h3>🔒 100%</h3><p>Gwarancji bezpieczeństwa plików</p></div>
-</div>
-
-<section class="about" id="about">
-    <h2>O Swieba Client</h2>
-    <p>Swieba Client to profesjonalny klient do Minecrafta 1.8.9, oferujący szybkie działanie, intuicyjne mody i konfigurowalne opcje. Dzięki niemu gracze zyskują przewagę w rozgrywce, komfort użytkowania oraz wsparcie i aktualizacje od twórców.</p>
-</section>
-
-
-<div class="container">
-    <div class="products-wrapper">
-        <section class="products-section">
-            <h2>Produkty</h2>
-<div class="products">
-
-    <div class="product">
-        <img src="images/client1.png">
-        <h2>Swieba Client</h2>
-        <p>Cena: 30,00 zł</p>
-        <button onclick="buyNow(30)">Kup teraz</button>
+    <div class="stats-sidebar">
+        <div class="stats-item"><span>100+</span><small><i class="fas fa-fire"></i> Użytkowników</small></div>
+        <div class="stats-item"><span>4.9</span><small><i class="fas fa-star"></i> Ocena</small></div>
+        <div class="stats-item"><span>100%</span><small><i class="fas fa-shield-alt"></i> Bezpieczeństwa</small></div>
     </div>
 
-    <div class="product">
-        <img src="images/client2.png">
-        <h2>Config Swieba Client</h2>
-        <p>Cena: 10,00 zł</p>
-        <button onclick="buyNow(10)">Kup teraz</button>
-    </div>
+    <div class="instruction-sidebar">
+        <div class="instruction-item">
+            <p style="font-size: 0.75rem; margin-bottom: 10px; color: #fff;">
+		 
+		 <section class="how-it-works">
+    <h2>Jak to działa?</h2>
 
-    <div class="product">
-        <img src="images/client4.png">
-        <h2>Custom texturepack</h2>
-        <p>Cena: 30,00 zł</p>
-        <button onclick="buyNow(31)">Kup teraz</button>
-    </div>
-
-    <div class="product">
-        <img src="images/client5.png">
-        <h2>Custom texturepack</h2>
-        <p>Cena: 40,00 zł</p>
-        <button onclick="buyNow(40)">Kup teraz</button>
-    </div>
-
-    <div class="product">
-        <img src="images/client6.png">
-        <h2>Custom texturepack</h2>
-        <p>Cena: 50,00 zł</p>
-        <button onclick="buyNow(50)">Kup teraz</button>
-    </div>
-
-</div>
-            
-        </section>
-    </div>
-</div>
-
-<section class="reviews" id="reviews">
-    <div class="review">
-        <p>"Najlepszy klient, jaki kiedykolwiek używałem!"</p>
-        <strong>- N3ko_S33k_PLK ⭐⭐⭐⭐</strong>
-    </div>
-    <div class="review">
-        <p>"Świetna wydajność i prosty w obsłudze."</p>
-        <strong>- wyc1nak ⭐⭐⭐⭐⭐</strong>
-    </div>
-    <div class="review">
-        <p>"Polecam każdemu, kto gra w Minecrafta 1.8.9."</p>
-        <strong>- Histears ⭐⭐⭐⭐⭐</strong>
-    </div>
-    <div class="review">
-        <p>"Legit i polecam"</p>
-        <strong>- nwm.pl ⭐⭐⭐⭐⭐</strong>
-    </div>
-    <div class="review">
-        <p>"fajny client"</p>
-        <strong>- $wxnter$ ⭐⭐⭐⭐⭐</strong>
-    </div>
-    <div class="review">
-        <p>"Teraz można rozwalać stiwkow"</p>
-        <strong>- Tojaorzech ⭐⭐⭐⭐⭐</strong>
-    </div>
-    <div class="review">
-        <p>"Stivki w postrachu"</p>
-        <strong>- Mikiciano ⭐⭐⭐⭐⭐</strong>
-    </div>
-    <div class="review">
-        <p>"Mega fajny client."</p>
-        <strong>- Komornik427 ⭐⭐⭐⭐⭐</strong>
-    </div>
-</section>
-
-<div class="sword-container"></div>
-
-<section class="contact" id="contact">
-<div class="social-grid">
-
-    <!-- TikTok -->
-    <a href="https://tiktok.com/@wvnch4j" target="_blank" class="tile tiktok">
-        <div class="overlay"></div>
-        <svg viewBox="0 0 24 24" class="icon">
-            <path fill="white" d="M16 2a5 5 0 0 0 5 5v3a8 8 0 0 1-5-1.5V16a6 6 0 1 1-6-6c.34 0 .67.03 1 .08v3.06A3 3 0 1 0 13 16V2h3z"/>
-        </svg>
-    </a>
-
-    <!-- YouTube -->
-    <a href="https://www.youtube.com/@wvnch4j" target="_blank" class="tile youtube">
-        <div class="overlay"></div>
-        <svg viewBox="0 0 24 24" class="icon">
-            <path fill="white" d="M23 7s-.2-1.5-.8-2.2c-.7-.8-1.5-.8-1.9-.9C17.7 3.5 12 3.5 12 3.5h0s-5.7 0-8.3.4c-.4.1-1.2.1-1.9.9C1.2 5.5 1 7 1 7S.8 8.7.8 10.3v1.4C.8 13.3 1 15 1 15s.2 1.5.8 2.2c.7.8 1.7.8 2.1.9 1.5.1 6.1.4 8.1.4s5.7 0 8.3-.4c.4-.1 1.2-.1 1.9-.9.6-.7.8-2.2.8-2.2s.2-1.7.2-3.3v-1.4C23.2 8.7 23 7 23 7zM9.8 14.6V8.8l5.5 2.9-5.5 2.9z"/>
-        </svg>
-    </a>
-
-   <!-- TikTok -->
-    <a href="https://tiktok.com/@swieb" target="_blank" class="tile tiktok">
-        <div class="overlay"></div>
-        <svg viewBox="0 0 24 24" class="icon">
-            <path fill="white" d="M16 2a5 5 0 0 0 5 5v3a8 8 0 0 1-5-1.5V16a6 6 0 1 1-6-6c.34 0 .67.03 1 .08v3.06A3 3 0 1 0 13 16V2h3z"/>
-        </svg>
-    </a>
-
-    <!-- Discord -->
-    <a href="https://discord.gg/a93ZKKQkfx" target="_blank" class="tile discord">
-        <div class="overlay"></div>
-        <div class="content">
-            <svg viewBox="0 0 24 24" class="icon big">
-                <path fill="white" d="M20.317 4.369a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.211.375-.444.864-.608 1.249a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.249.077.077 0 00-.079-.037 19.736 19.736 0 00-4.885 1.515.069.069 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.056 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.873-1.295 1.226-1.994a.076.076 0 00-.041-.105 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 01.077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 01.078.009c.12.099.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.04.106c.36.698.77 1.363 1.225 1.993a.076.076 0 00.084.028 19.876 19.876 0 005.993-3.03.077.077 0 00.031-.055c.5-5.177-.838-9.674-3.548-13.66a.061.061 0 00-.031-.03z"/>
-            </svg>
-            <p>DOŁĄCZ DO NASZEJ<br>SPOŁECZNOŚCI</p>
+    <div class="steps-container">
+        <div class="step">
+            <div class="step-number">1️⃣</div>
+            <p>Kupujesz produkt</p>
         </div>
-    </a>
 
-</div>
+        <div class="step">
+            <div class="step-number">2️⃣</div>
+            <p>Dołączasz na Discord</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">3️⃣</div>
+            <p>Otwierasz ticket</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">4️⃣</div>
+            <p>Odbierasz klienta</p>
+        </div>
+    </div>
 </section>
+            <a href="https://discord.gg/a93ZKKQkfx" target="_blank" class="btn-sidebar-dc"><i class="fab fa-discord"></i> DC</a>
+        </div>
+    </div>
 
+    <div id="purchase-view">
+        <div class="purchase-card">
+            <h2 id="plan-name" style="color: #00a2ff;">Zakup</h2>
+            <input type="text" id="nick-input" placeholder="Nick z Minecraft">
+            <button class="btn-buy" onclick="completePurchase()">Potwierdź</button>
+            <p onclick="closePurchase()" style="margin-top: 15px; cursor: pointer; color: #555;">Anuluj</p>
+        </div>
+    </div>
 
-<footer>
-    <p id="visits">Odwiedziny: </p>
-    <p>© 2026 Swieba Client</p>
-</footer>
-    
-<script>
-const STRIPE_LINKS = {
-    30: "https://buy.stripe.com/fZu6oA5vM6uI2Xr44O1Nu02",
-    10: "https://buy.stripe.com/fZudR2cYecT6fKdcBk1Nu04",
-    40: "https://buy.stripe.com/4gM14g8HYdXa7dHgRA1Nu01",
-    50: "https://buy.stripe.com/eVq7sE5vMdXa9lP8l41Nu00",
-    31: "https://buy.stripe.com/5kQfZa2jA4mA9lPgRA1Nu03"
-};
+    <div id="main-content">
+        <section class="hero">
+            <h1>SwiebaClient</h1>
+            
+            <div class="hero-main-layout">
+                <div class="project-info-flat">
+                    <h4>O cliencie</h4>
+                    <p>
+                        <span>SwiebaClient</span> to profesjonalny klient do Minecrafta 1.8.9, oferujący szybkie działanie, intuicyjne mody i konfigurowalne opcje. Dzięki niemu gracze zyskują przewagę w rozgrywce, komfort użytkowania oraz wsparcie i aktualizacje od twórców.
+                    </p>
+                </div>
 
+                <div class="skin-render-box">
+                    <img src="custom-ava.png" alt="Skin" onerror="this.src='https://mc-heads.net/body/steve/right'">
+                </div>
+            </div>
 
-function spawnSword(){
-    const sword = document.createElement("div");
-    sword.classList.add("sword");
+            <div class="pricing-container">
+                <div class="price-card">
+                    <h3>Config</h3>
+                    <div class="cost">10 PLN</div>
+                    <ul><li>Tworzymy config dla ciebie</li><li>Oraz dowolne ustawienia</li></ul>
+                    <button class="btn-buy" onclick="openPurchase('Config')">KUP TERAZ</button>
+                </div>
+                <div class="price-card">
+                    <h3>Standard</h3>
+                    <div class="cost">30 PLN</div>
+                    <ul><li>Pełny dostęp</li><li>Modyfikacje</li><li>Dostęp do klienta</li></ul>
+                    <button class="btn-buy" onclick="openPurchase('Standard')">KUP TERAZ</button>
+                </div>
+                <div class="price-card">
+                    <h3>Texturepack</h3>
+                    <div class="cost">30 PLN</div>
+                    <ul><li>Custom Design</li><li>Wersja 1.8.9</li></ul>
+                    <button class="btn-buy" onclick="openPurchase('Texturepack')">KUP TERAZ</button>
+                </div>
+                <div class="price-card">
+                    <h3>Texturepack</h3>
+                    <div class="cost">40 PLN</div>
+                    <ul><li>Custom Design</li><li>Wersja 1.8.9</li><li>Lepsze tekstury</li></ul>
+                    <button class="btn-buy" onclick="openPurchase('Texturepack_40')">KUP TERAZ</button>
+                </div>
+                <div class="price-card" style="border-color: #00a2ff;">
+                    <h3 style="color: #00a2ff;">Texturepack</h3>
+                    <div class="cost">50 PLN</div>
+                    <ul><li>Premium Design</li><li>Wersja 1.8.9</li><li>Unikalne tekstury</li></ul>
+                    <button class="btn-buy" onclick="openPurchase('Texturepack_50')">KUP TERAZ</button>
+                </div>
+            </div>
+        </section>
 
-    const items = ["🗡️", "⛏️", "🪓", "💎"];
+        <div class="reviews-section">
+            <div class="marquee" id="marquee">
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Najlepszy klient, jaki kiedykolwiek używałem!"</p>
+                    <strong>- N3ko_S33k_PLK</strong>
+                </div>
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Świetna wydajność i prosty w obsłudze."</p>
+                    <strong>- wyc1nak</strong>
+                </div>
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Polecam każdemu, kto gra w Minecrafta 1.8.9."</p>
+                    <strong>- Histears</strong>
+                </div>
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Legit i polecam"</p>
+                    <strong>- nwm.pl</strong>
+                </div>
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"fajny client"</p>
+                    <strong>- $wxnter$</strong>
+                </div>
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Teraz można rozwalać stiwkow"</p>
+                    <strong>- Tojaorzech</strong>
+                </div>
+            </div>
+        </div>
 
-    sword.textContent = items[Math.floor(Math.random() * items.length)];
+        <h3 class="media-header">Nasze Media</h3>
 
-    sword.style.left = Math.random() * 100 + "vw";
-    sword.style.animationDuration = (3 + Math.random() * 3) + "s";
+        <div class="social-grid">
+            <a href="https://tiktok.com/@wvnch4j" class="tile tiktok" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://youtube.com/@wvnch4j" class="tile youtube" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://discord.gg/a93ZKKQkfx" class="tile discord" target="_blank"><i class="fab fa-discord"></i></a>
+        </div>
+    </div>
 
-    document.body.appendChild(sword);
+    <footer>&copy; 2026 SwiebaClient. Wszystkie prawa zastrzeżone.</footer>
 
-    setTimeout(() => {
-        sword.remove();
-    }, 6000);
-}
+    <script>
+        const marquee = document.getElementById('marquee');
+        if(marquee) marquee.innerHTML += marquee.innerHTML;
 
-setInterval(spawnSword, 400);
-
-// BUY NOW
-function buyNow(price){
-    const link = STRIPE_LINKS[price];
-
-    if(!link){
-        alert("Błąd płatności!");
-        return;
-    }
-
-    window.location.href = link;
-}
-
-// DARK MODE
-document.getElementById('theme-toggle').addEventListener('click',()=>{
-    document.body.classList.toggle('dark-theme');
-});
-
-fetch("https://api.counterapi.dev/v2/cerek-companys-team-3637/swieba-client/up")
-.then(res => {
-    if(!res.ok) throw new Error("API error");
-    return res.json();
-})
-.then(data => {
-    let count = data?.data?.up_count || 0;
-    let el = document.getElementById("visits");
-
-    let i = 0;
-    let interval = setInterval(()=>{
-        i++;
-        el.textContent = "🔥 Odwiedziny: " + i;
-        if(i >= count) clearInterval(interval);
-    }, 10);
-})
-.catch(err => {
-    console.error("Licznik error:", err);
-
-    // 🔥 fallback (zawsze coś pokaże)
-    let saved = localStorage.getItem("fake_visits") || 100;
-    saved = parseInt(saved) + 1;
-    localStorage.setItem("fake_visits", saved);
-
-    document.getElementById("visits").textContent = "🔥 Odwiedziny: " + saved;
-});
-
-const contactSection = document.querySelector('#contact');
-
-window.addEventListener('scroll', () => {
-    const rect = contactSection.getBoundingClientRect();
-
-    if(rect.top < window.innerHeight - 100){
-        contactSection.classList.add('show');
-    }
-});
-
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function(e){
-        e.preventDefault();
-
-        const target = document.querySelector(this.getAttribute('href'));
-        
-        target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    });
-});
-
-// 🔥 animacje produktów i opinii
-const animatedSections = document.querySelectorAll('.products-section, .reviews');
-
-window.addEventListener('scroll', () => {
-    animatedSections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-
-        if(rect.top < window.innerHeight - 100){
-            section.classList.add('show');
+        let selectedPlan = "";
+        function openPurchase(plan) { 
+            selectedPlan = plan; 
+            document.getElementById('plan-name').innerText = "Zakup: " + plan.replace('_', ' '); 
+            document.getElementById('purchase-view').style.display = 'flex'; 
         }
-    });
-});
-
-</script>
+        function closePurchase() { document.getElementById('purchase-view').style.display = 'none'; }
+        function completePurchase() { 
+            const nick = document.getElementById('nick-input').value;
+            if(nick.trim().length < 3) { alert("Wpisz poprawny nick!"); return; }
+            
+            if(selectedPlan === "Standard") window.location.href = "https://buy.stripe.com/fZu6oA5vM6uI2Xr44O1Nu02";
+            else if(selectedPlan === "Config") window.location.href = "https://buy.stripe.com/fZudR2cYecT6fKdcBk1Nu04";
+            else if(selectedPlan === "Texturepack") window.location.href = "https://buy.stripe.com/5kQfZa2jA4mA9lPgRA1Nu03";
+            else if(selectedPlan === "Texturepack_40") window.location.href = "https://buy.stripe.com/4gM14g8HYdXa7dHgRA1Nu01";
+            else if(selectedPlan === "Texturepack_50") window.location.href = "https://buy.stripe.com/eVq7sE5vMdXa9lP8l41Nu00";
+        }
+    </script>
+</body>
+</html>
