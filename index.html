@@ -1,616 +1,1328 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SwiebaClient – klient do Minecraft 1.8.9 i BedWars | Swieba Client</title>
+<meta name="description" content="SwiebaClient – profesjonalny klient do Minecrafta 1.8.9 dla graczy BedWars. Szybkie działanie, intuicyjne mody, configi i wsparcie na Discordzie. Swieba Client 30 zł, Config 10 zł.">
+<meta name="keywords" content="swiebaclient, swieba client, klient minecraft 1.8.9, bedwars, config minecraft, client minecraft polska, pvp client">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#070b24">
+<meta name="author" content="SwiebaClient">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpolygon points='16,2 29,9 16,16 3,9' fill='%237fe9e0'/%3E%3Cpolygon points='3,9 16,16 16,30 3,23' fill='%2328b5ae'/%3E%3Cpolygon points='29,9 16,16 16,30 29,23' fill='%23187f7b'/%3E%3Cpath d='M16 2L29 9V23L16 30L3 23V9Z M3 9L16 16L29 9 M16 16V30' fill='none' stroke='%23070b24' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E">
+<!-- Po wgraniu strony na domenę odkomentuj i wpisz swój adres:
+<link rel="canonical" href="https://twoja-domena.pl/"> -->
 
-    <!-- SEO podstawowe -->
-    <title>SwiebaClient | Najlepszy klient do Minecraft 1.8.9 i BedWars</title>
-    <meta name="description" content="SwiebaClient – szybki, profesjonalny klient do Minecrafta 1.8.9 dla graczy BedWars. Konfiguracje, modyfikacje, custom texturepacki i wsparcie na Discordzie. Zakup w kilka minut.">
-    <meta name="keywords" content="SwiebaClient, klient minecraft 1.8.9, bedwars, texturepack 1.8.9, config minecraft, client minecraft polska, pvp client">
-    <meta name="author" content="SwiebaClient">
-    <meta name="robots" content="index, follow, max-image-preview:large">
-    <meta name="theme-color" content="#0a0a0c">
-    <meta name="color-scheme" content="dark">
-    <!-- Po wgraniu strony na domenę odkomentuj i wpisz swój adres:
-    <link rel="canonical" href="https://twoja-domena.pl/"> -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SwiebaClient">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:title" content="SwiebaClient – klient do Minecraft 1.8.9 i BedWars">
+<meta property="og:description" content="Szybki klient do Minecrafta 1.8.9, configi i wsparcie na Discordzie. Swieba Client 30 zł, Config 10 zł.">
+<meta property="og:image" content="custom-ava.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SwiebaClient – klient do Minecraft 1.8.9">
+<meta name="twitter:description" content="Szybki klient do Minecrafta 1.8.9 i configi. Płatność przez Stripe.">
+<meta name="twitter:image" content="custom-ava.png">
 
-    <!-- Open Graph / Twitter -->
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="pl_PL">
-    <meta property="og:site_name" content="SwiebaClient">
-    <meta property="og:title" content="SwiebaClient | Najlepszy klient do Minecraft 1.8.9">
-    <meta property="og:description" content="Szybki klient do Minecrafta 1.8.9, configi i custom texturepacki. Dołącz do społeczności na Discordzie.">
-    <meta property="og:image" content="custom-ava.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SwiebaClient | Klient do Minecraft 1.8.9">
-    <meta name="twitter:description" content="Szybki klient do Minecrafta 1.8.9, configi i custom texturepacki.">
-    <meta name="twitter:image" content="custom-ava.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
 
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "name": "SwiebaClient",
+      "sameAs": ["https://discord.gg/hF6JbP63Xd","https://tiktok.com/@wvnch4j","https://youtube.com/@wvnch4j"] },
+    { "@type": "WebSite", "name": "SwiebaClient", "inLanguage": "pl-PL" },
+    { "@type": "ItemList", "name": "Oferta SwiebaClient",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "item": {
+            "@type": "Product", "name": "Swieba Client",
+            "description": "Profesjonalny klient do Minecrafta 1.8.9: pełny dostęp, modyfikacje, szybkie działanie, wsparcie i aktualizacje. Na zawsze.",
+            "category": "Klient do Minecrafta 1.8.9",
+            "brand": { "@type": "Brand", "name": "SwiebaClient" },
+            "offers": { "@type": "Offer", "price": "30.00", "priceCurrency": "PLN", "availability": "https://schema.org/InStock" } } },
+        { "@type": "ListItem", "position": 2, "item": {
+            "@type": "Product", "name": "Config",
+            "description": "Tworzymy config dla Ciebie oraz dowolne ustawienia.",
+            "category": "Config do Minecrafta 1.8.9",
+            "brand": { "@type": "Brand", "name": "SwiebaClient" },
+            "offers": { "@type": "Offer", "price": "10.00", "priceCurrency": "PLN", "availability": "https://schema.org/InStock" } } }
+      ] },
+    { "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Jak odbiorę klienta po zakupie?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Po opłaceniu zamówienia przez Stripe dołącz na nasz serwer Discord, otwórz ticket i odbierz swój produkt." } },
+        { "@type": "Question", "name": "Na jaką wersję Minecrafta jest SwiebaClient?",
+          "acceptedAnswer": { "@type": "Answer", "text": "SwiebaClient to klient do Minecrafta w wersji 1.8.9." } },
+        { "@type": "Question", "name": "Co dostanę w produkcie Config?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Tworzymy config specjalnie dla Ciebie, z dowolnymi ustawieniami, które wybierzesz." } },
+        { "@type": "Question", "name": "Czy dostęp do klienta jest na zawsze?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Tak. Swieba Client kupujesz jednorazowo i dostajesz pełny dostęp na zawsze." } },
+        { "@type": "Question", "name": "Gdzie mogę zadać pytanie?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Dołącz na nasz serwer Discord – tam odpowiadamy na pytania i pomagamy z konfiguracją." } },
+        { "@type": "Question", "name": "Czy płatność jest bezpieczna?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Tak. Płatności obsługuje Stripe – dane płatności trafiają bezpośrednio do Stripe, a nie na naszą stronę." } }
+      ] }
+  ]
+}
+</script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<noscript><style>
+.reveal{opacity:1!important;transform:none!important}
+#loader{display:none!important}
+[data-route][hidden]{display:block!important}
+.scene{display:none!important}
+</style></noscript>
 
-    <!-- Dane strukturalne -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "name": "SwiebaClient",
-          "sameAs": [
-            "https://discord.gg/hF6JbP63Xd",
-            "https://tiktok.com/@wvnch4j",
-            "https://youtube.com/@wvnch4j"
-          ]
-        },
-        {
-          "@type": "WebSite",
-          "name": "SwiebaClient",
-          "inLanguage": "pl-PL"
-        },
-        {
-          "@type": "ItemList",
-          "name": "Oferta SwiebaClient",
-          "itemListElement": [
-            { "@type": "Product", "name": "Config", "description": "Tworzymy config dla Ciebie oraz dowolne ustawienia.",
-              "offers": { "@type": "Offer", "price": "10", "priceCurrency": "PLN", "availability": "https://schema.org/InStock" } },
-            { "@type": "Product", "name": "Swieba Client", "description": "Pełny dostęp, modyfikacje, na zawsze. Klient do Minecraft 1.8.9.",
-              "offers": { "@type": "Offer", "price": "30", "priceCurrency": "PLN", "availability": "https://schema.org/InStock" } },
-            { "@type": "Product", "name": "Texturepack 30 PLN", "description": "Custom design, wersja 1.8.9.",
-              "offers": { "@type": "Offer", "price": "30", "priceCurrency": "PLN", "availability": "https://schema.org/InStock" } },
-            { "@type": "Product", "name": "Texturepack 40 PLN", "description": "Custom design, wersja 1.8.9, lepsze tekstury.",
-              "offers": { "@type": "Offer", "price": "40", "priceCurrency": "PLN", "availability": "https://schema.org/InStock" } },
-            { "@type": "Product", "name": "Texturepack 50 PLN", "description": "Premium design, wersja 1.8.9, unikalne tekstury.",
-              "offers": { "@type": "Offer", "price": "50", "priceCurrency": "PLN", "availability": "https://schema.org/InStock" } }
-          ]
-        }
-      ]
-    }
-    </script>
+<style>
+:root{
+  --bg:#070b24; --navy:#0f1638; --navy-2:#182152; --navy-3:#22307a;
+  --violet:#1a7cff; --violet-2:#6cc4ff; --violet-3:#0b3a8f;
+  --ink:#e9f1ff; --muted:#a9b6d9; --line:#04061a;
+  --font-px:'Press Start 2P','Courier New',monospace;
+  --font-vt:'VT323','Courier New',monospace;
+  --font-body:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  color-scheme:dark;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);background:var(--bg);-webkit-text-size-adjust:100%}
+*,*::before,*::after{box-sizing:inherit}
+[hidden]{display:none!important}
+body{
+  margin:0;min-height:100vh;background:var(--bg);color:var(--ink);
+  font-family:var(--font-body);font-size:1.05rem;line-height:1.65;overflow-x:hidden;
+}
+a{color:var(--violet-2)}
+img{max-width:100%;height:auto}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--violet);color:#fff;padding:8px 14px;z-index:200}
+.skip:focus{left:8px}
+.pl{position:relative}
 
-    <style>
-        :root {
-            --bg: #07080c;
-            --card: rgba(255, 255, 255, 0.035);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --accent: #00a2ff;
-            --accent-2: #00d4ff;
-            --text: #f2f6fb;
-            --muted: #98a2b3;
-            --radius: 24px;
-            --gutter: clamp(16px, 5vw, 8vw);
-        }
+/* ---------- NIEBO ---------- */
+.sky{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(180deg,#050a1e 0%,#0b1642 38%,#102a70 72%,#1a4a9a 100%)}
+.star{position:absolute;background:#fff;opacity:.8;animation:twinkle 3s ease-in-out infinite}
+@keyframes twinkle{50%{opacity:.15}}
+.moon{position:absolute;top:96px;right:9%;width:56px;height:56px;background:#e7f1ff;
+  box-shadow:0 0 60px 18px rgba(108,196,255,.22)}
+.moon::before{content:"";position:absolute;top:10px;left:30px;width:14px;height:14px;background:#c5d8f2;
+  box-shadow:-20px 22px 0 #c5d8f2,8px 28px 0 -3px #c5d8f2}
+.cloud{position:absolute;left:-220px;height:18px;width:96px;background:rgba(170,200,255,.09);
+  animation:drift linear infinite}
+.cloud::before,.cloud::after{content:"";position:absolute;background:inherit}
+.cloud::before{left:18px;top:-14px;width:52px;height:14px}
+.cloud::after{left:-14px;top:6px;width:30px;height:12px}
+@keyframes drift{to{transform:translateX(calc(100vw + 460px))}}
 
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-        body {
-            font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            overflow-x: hidden;
-            min-height: 100vh;
-            min-height: 100dvh;
-            line-height: 1.6;
-            padding-left: env(safe-area-inset-left);
-            padding-right: env(safe-area-inset-right);
-        }
-        img { max-width: 100%; height: auto; display: block; }
-        a { color: inherit; }
-        :focus-visible { outline: 2px solid var(--accent-2); outline-offset: 3px; border-radius: 8px; }
+/* ---------- LAYOUT ---------- */
+.site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;
+  background:rgba(6,9,30,.96);border-bottom:4px solid var(--line);
+  box-shadow:0 4px 0 rgba(26,124,255,.25)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:6px;text-decoration:none;color:#fff;font-family:var(--font-px);font-size:.78rem;letter-spacing:.02em;text-shadow:2px 2px 0 var(--violet-3)}
+.brand b{color:var(--violet-2);font-weight:400;margin-left:.4em}
+.brand .cube-slot{animation:none}
+nav.main{display:flex;gap:6px 22px;flex-wrap:wrap}
+nav.main a{font-family:var(--font-vt);font-size:1.45rem;color:var(--ink);text-decoration:none;padding:0 4px;position:relative}
+nav.main a::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:3px;background:var(--violet-2);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+nav.main a:hover::after,nav.main a:focus-visible::after{transform:scaleX(1)}
 
-        .skip-link { position: absolute; left: -999px; top: 8px; background: var(--accent); color: #fff; padding: 10px 16px; border-radius: 10px; z-index: 2000; text-decoration: none; }
-        .skip-link:focus { left: 8px; }
+main{position:relative;z-index:2}
+section.block{padding:84px 0 20px;scroll-margin-top:80px}
+h1,h2,h3{font-family:var(--font-px);font-weight:400;line-height:1.35;margin:0}
+h2.title{font-size:clamp(1.05rem,2.6vw,1.5rem);color:#fff;text-shadow:3px 3px 0 var(--violet-3);margin-bottom:.8rem}
+.sub{color:var(--muted);max-width:640px;margin:0 0 2.2rem}
+.eyebrow{font-family:var(--font-vt);font-size:1.5rem;color:var(--violet-2);letter-spacing:.08em;text-transform:uppercase;margin:0 0 .6rem}
 
-        /* ---------- Tło ---------- */
-        .bg-gradient {
-            position: fixed; inset: 0; z-index: -2;
-            background:
-                radial-gradient(ellipse at 20% 0%, rgba(0, 162, 255, 0.16), transparent 55%),
-                radial-gradient(ellipse at 90% 60%, rgba(0, 212, 255, 0.08), transparent 50%),
-                var(--bg);
-        }
-        .bg-grid {
-            position: fixed; inset: 0; z-index: -2; opacity: .5;
-            background-image:
-                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-            background-size: 56px 56px;
-            pointer-events: none;
-        }
-        .blob {
-            position: fixed; top: 0; left: 0;
-            width: min(700px, 100vw); height: min(700px, 100vw);
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.16) 0%, transparent 65%);
-            border-radius: 50%; z-index: -1;
-            animation: move 24s infinite alternate ease-in-out;
-            will-change: transform;
-            pointer-events: none;
-        }
-        @keyframes move { from { transform: translate(-20%, -10%); } to { transform: translate(60%, 50%); } }
+.panel{background:linear-gradient(180deg,var(--navy-2),var(--navy));border:4px solid var(--line);
+  box-shadow:inset 4px 4px 0 rgba(108,196,255,.18),inset -4px -4px 0 rgba(0,0,0,.4),0 8px 0 rgba(0,0,0,.28)}
 
-        /* ---------- Nawigacja ---------- */
-        .site-header {
-            position: sticky; top: 0; z-index: 100;
-            background: rgba(7, 8, 12, 0.94);
-            border-bottom: 1px solid var(--card-border);
-        }
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            gap: 16px; padding: 14px var(--gutter); max-width: 1400px; margin: 0 auto;
-        }
-        .logo {
-            font-size: clamp(1.2rem, 4vw, 1.7rem); font-weight: 900; letter-spacing: 1px; text-decoration: none;
-            background: linear-gradient(90deg, #fff, var(--accent));
-            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .nav-links { display: flex; gap: 22px; list-style: none; align-items: center; }
-        .nav-links a { color: #cfd6e0; text-decoration: none; font-size: .9rem; transition: color .25s; }
-        .nav-links a:hover { color: var(--accent); }
-        .nav-socials { display: flex; gap: 8px; padding-left: 18px; border-left: 1px solid var(--card-border); }
-        .nav-socials a {
-            width: 38px; height: 38px; display: grid; place-items: center; border-radius: 12px;
-            background: var(--card); border: 1px solid var(--card-border); font-size: 1.05rem; transition: .25s;
-        }
-        .nav-socials a:hover { background: var(--accent); border-color: var(--accent); color: #fff; transform: translateY(-2px); }
+/* ---------- PRZYCISKI ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;font-family:var(--font-vt);
+  font-size:1.5rem;letter-spacing:.04em;line-height:1.1;color:#fff;text-decoration:none;padding:.6rem 1.5rem;
+  background:var(--violet);border:4px solid var(--line);cursor:pointer;
+  box-shadow:inset 4px 4px 0 rgba(255,255,255,.28),inset -4px -4px 0 rgba(0,0,0,.35);
+  text-shadow:2px 2px 0 rgba(0,0,0,.45);transition:transform .12s,background .2s;font-weight:400}
+.btn:hover,.btn:focus-visible{background:#3d95ff;transform:translateY(-3px)}
+.btn:active{transform:translateY(2px);box-shadow:inset 4px 4px 0 rgba(0,0,0,.3),inset -4px -4px 0 rgba(255,255,255,.14)}
+.btn.ghost{background:var(--navy-3)}
+.btn.ghost:hover{background:#2c3d96}
+.btn.big{font-size:1.9rem;padding:.75rem 1.8rem;width:100%}
+:focus-visible{outline:3px solid var(--violet-2);outline-offset:3px}
 
-        /* ---------- Hero ---------- */
-        main { max-width: 1400px; margin: 0 auto; }
-        section { padding: clamp(36px, 7vw, 80px) var(--gutter); }
+/* ---------- BLOKI 3D ---------- */
+.cube-slot{display:grid;place-items:center;width:calc(var(--slot)*1.45);height:calc(var(--slot)*1.45);animation:bob 4.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.cube{position:relative;width:var(--s);height:var(--s);transform-style:preserve-3d;
+  transform:rotateX(-24deg) rotateY(-35deg);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.cube.free{transition:none}
+.face{position:absolute;inset:0;display:block;background-size:100% 100%;image-rendering:pixelated;
+  backface-visibility:hidden;box-shadow:inset 0 0 0 1px rgba(0,0,0,.3)}
+.face::after{content:"";position:absolute;inset:0}
+.f-front{transform:translateZ(calc(var(--s)/2))}
+.f-back{transform:rotateY(180deg) translateZ(calc(var(--s)/2))}
+.f-right{transform:rotateY(90deg) translateZ(calc(var(--s)/2))}
+.f-left{transform:rotateY(-90deg) translateZ(calc(var(--s)/2))}
+.f-top{transform:rotateX(90deg) translateZ(calc(var(--s)/2))}
+.f-bottom{transform:rotateX(-90deg) translateZ(calc(var(--s)/2))}
+.f-front::after{background:rgba(0,0,12,.14)}
+.f-right::after{background:rgba(0,0,12,.34)}
+.f-left::after{background:rgba(0,0,12,.26)}
+.f-back::after{background:rgba(0,0,12,.4)}
+.f-bottom::after{background:rgba(0,0,12,.5)}
 
-        .hero { text-align: center; display: flex; flex-direction: column; align-items: center; padding-bottom: 20px; }
-        .badge {
-            display: inline-flex; align-items: center; gap: 8px; padding: 7px 16px; border-radius: 999px;
-            background: rgba(0,162,255,.1); border: 1px solid rgba(0,162,255,.35);
-            color: var(--accent-2); font-size: .78rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-        h1 {
-            font-size: clamp(2.3rem, 9vw, 5.5rem); text-transform: uppercase; font-weight: 900; line-height: 1.05; letter-spacing: -1px;
-            background: linear-gradient(180deg, #fff 30%, #7fd0ff 100%);
-            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-            margin-bottom: 14px; word-break: break-word;
-        }
-        .tagline { color: var(--muted); font-size: clamp(.95rem, 2.4vw, 1.15rem); max-width: 620px; }
+/* ---------- HERO ---------- */
+.hero{padding:70px 0 40px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:30px;align-items:center}
+.hero h1{font-size:clamp(1.35rem,3.6vw,2.3rem);color:#fff;text-shadow:4px 4px 0 var(--violet-3);margin-bottom:1.2rem}
+.hero h1 span{color:var(--violet-2)}
+.lead{font-size:1.15rem;color:#d4e2fa;max-width:560px}
+.cta{display:flex;gap:14px;flex-wrap:wrap;margin:1.8rem 0 1.4rem}
+.badges{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--muted);font-size:.95rem}
+.badges li::before{content:"";display:inline-block;width:10px;height:10px;background:var(--violet-2);margin-right:8px;box-shadow:2px 2px 0 var(--violet-3)}
+.hero-blocks{position:relative;height:470px}
+.skin{position:absolute;left:50%;top:0;width:clamp(190px,24vw,280px);margin-left:calc(clamp(190px,24vw,280px) / -2);animation:float 4s ease-in-out infinite;will-change:transform}
+.skin::before{content:"";position:absolute;inset:6% -14% 0;z-index:-1;background:radial-gradient(ellipse at center,rgba(0,162,255,.3) 0%,transparent 68%)}
+.skin img{width:100%;display:block}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+.hb{position:absolute;display:block;text-decoration:none}
+.hb .cube-slot{animation-duration:5s}
+.hb:hover .cube,.hb:focus-visible .cube{transform:rotateX(-30deg) rotateY(145deg) scale(1.1)}
+.hb2{left:0;bottom:0}
+.hb2 .cube-slot{animation-delay:-1.6s}
+.hb3{right:0;bottom:10px}
+.hb3 .cube-slot{animation-delay:-3.1s}
 
-        .hero-main-layout {
-            display: flex; align-items: center; justify-content: center;
-            gap: clamp(24px, 6vw, 70px); margin: clamp(28px, 5vw, 56px) 0;
-            flex-wrap: wrap; max-width: 1100px; width: 100%;
-        }
-        .project-info-flat {
-            flex: 1 1 320px; max-width: 420px; text-align: left;
-            background: var(--card); border: 1px solid var(--card-border);
-            border-left: 4px solid var(--accent); border-radius: 6px var(--radius) var(--radius) 6px;
-            padding: 26px 28px;
-        }
-        .project-info-flat h2 { color: var(--accent); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1.5px; font-size: 1.05rem; }
-        .project-info-flat p { color: #b4bdcb; font-size: .97rem; }
-        .project-info-flat strong { color: #fff; font-weight: 700; }
+/* ---------- STATYSTYKI ---------- */
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.stat{padding:1.1rem .8rem 1.2rem;text-align:center;min-width:0}
+.stat b{display:block;font-family:var(--font-vt);font-weight:400;font-size:clamp(2.2rem,6vw,3.4rem);line-height:1;color:var(--violet-2);text-shadow:3px 3px 0 #04061a}
+.stat span{display:block;font-family:var(--font-vt);font-size:1.3rem;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;overflow-wrap:anywhere}
 
-        .skin-render-box { flex: 0 1 auto; width: clamp(230px, 38vw, 500px); animation: float 4s ease-in-out infinite; position: relative; will-change: transform; }
-        .skin-render-box::before {
-            content: ""; position: absolute; inset: 5% -10% 0; z-index: -1;
-            background: radial-gradient(ellipse at center, rgba(0,212,255,.28) 0%, transparent 68%);
-        }
-        .skin-render-box img { width: 100%; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-        @keyframes shadow { 0%, 100% { transform: scaleX(1); opacity: 1; } 50% { transform: scaleX(.8); opacity: .55; } }
+/* ---------- KARTY PRODUKTÓW ---------- */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;max-width:860px;margin:0 auto}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
+.card{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s;height:100%}
+.card a.card-link{display:flex;flex-direction:column;align-items:center;height:100%;text-decoration:none;color:inherit;text-align:center;padding:1.2rem 1.4rem 1.7rem}
+.card:hover,.card:focus-within{transform:translateY(-10px);
+  box-shadow:inset 4px 4px 0 rgba(108,196,255,.3),inset -4px -4px 0 rgba(0,0,0,.4),0 0 0 4px var(--violet-2),0 0 46px rgba(26,124,255,.5)}
+.stage{position:relative;height:215px;display:grid;place-items:center}
+.stage .shadow{position:absolute;bottom:12px;left:50%;width:120px;height:18px;margin-left:-60px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(0,0,0,.55),transparent 70%);transition:transform .5s,opacity .5s}
+.card:hover .shadow,.card:focus-within .shadow{transform:scale(.65);opacity:.55}
+.card:hover .cube,.card:focus-within .cube{transform:rotateX(-30deg) rotateY(145deg) scale(1.08)}
+.card:hover .cube-slot,.card:focus-within .cube-slot{animation-duration:1.7s}
+.tag{display:inline-block;font-family:var(--font-vt);font-size:1.25rem;background:var(--violet-3);color:#dcecff;padding:0 10px;border:3px solid var(--line);margin-bottom:.6rem}
+.card h3{font-size:.95rem;color:#fff;margin-bottom:.4rem}
+.price{font-family:var(--font-vt);font-size:3rem;line-height:1;color:var(--violet-2);margin:.3rem 0 .6rem;text-shadow:3px 3px 0 #04061a}
+.card p.d{color:var(--muted);margin:0 0 1.2rem;font-size:.98rem;flex:1 0 auto}
+.card .btn{margin-top:auto;min-width:9.5rem}
 
-        .cta-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-        .btn {
-            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-            padding: 14px 28px; border-radius: 999px; font-weight: 700; font-size: .95rem;
-            text-decoration: none; cursor: pointer; border: 1px solid transparent; transition: .3s; font-family: inherit;
-        }
-        .btn-primary { background: linear-gradient(45deg, #0077ff, var(--accent-2)); color: #fff; box-shadow: 0 10px 30px rgba(0,119,255,.35); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 38px rgba(0,162,255,.5); }
-        .btn-ghost { background: var(--card); border-color: var(--card-border); color: #fff; }
-        .btn-ghost:hover { border-color: var(--accent); background: rgba(0,162,255,.1); }
+/* ---------- FEATURES / STEPS ---------- */
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.feat{padding:1.3rem 1.3rem 1.5rem;transition:transform .3s}
+.feat:hover{transform:translateY(-6px)}
+.feat .ic{width:52px;height:52px;display:grid;place-items:center;font-size:1.6rem;background:var(--navy-3);border:4px solid var(--line);
+  box-shadow:inset 3px 3px 0 rgba(255,255,255,.18),inset -3px -3px 0 rgba(0,0,0,.35);margin-bottom:.9rem}
+.feat h3{font-size:.78rem;margin-bottom:.6rem;color:#fff}
+.feat p{margin:0;color:var(--muted);font-size:.98rem}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;counter-reset:s}
+.steps li{counter-increment:s;padding:1.3rem 1.3rem 1.5rem 5rem;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:1rem;top:1.1rem;width:48px;height:48px;display:grid;place-items:center;
+  font-family:var(--font-px);font-size:1.1rem;background:var(--violet);border:4px solid var(--line);
+  box-shadow:inset 3px 3px 0 rgba(255,255,255,.3),inset -3px -3px 0 rgba(0,0,0,.35)}
+.steps h3{font-size:.75rem;margin-bottom:.5rem;color:#fff}
+.steps p{margin:0;color:var(--muted);font-size:.98rem}
 
-        /* ---------- Statystyki ---------- */
-        .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 900px; margin: 0 auto; padding-top: 10px; padding-bottom: 10px; }
-        .stats-item {
-            background: var(--card);
-            border: 1px solid var(--card-border); border-radius: 20px; padding: 20px 14px; text-align: center; transition: .3s;
-        }
-        .stats-item:hover { border-color: rgba(0,162,255,.5); transform: translateY(-4px); }
-        .stats-item span { display: block; font-size: clamp(1.4rem, 4vw, 2.1rem); font-weight: 900; line-height: 1.2; }
-        .stats-item small { color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: 1px; }
-        .stats-item i { color: var(--accent); margin-right: 4px; }
+/* ---------- OPINIE ---------- */
+.rev{padding:1.3rem 1.4rem 1.4rem;display:flex;flex-direction:column;gap:.6rem;height:100%}
+.rev .st{font-family:var(--font-vt);font-size:1.5rem;letter-spacing:.15em;color:#ffca28;line-height:1}
+.rev p{margin:0;color:#dbe6fb;flex-grow:1}
+.rev b{font-family:var(--font-vt);font-weight:400;font-size:1.4rem;color:var(--violet-2)}
 
-        /* ---------- Nagłówki sekcji ---------- */
-        .section-title { text-align: center; margin-bottom: clamp(24px, 5vw, 48px); }
-        .section-title h2 { font-size: clamp(1.6rem, 5vw, 2.6rem); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
-        .section-title h2 em { font-style: normal; color: var(--accent); }
-        .section-title p { color: var(--muted); margin-top: 6px; }
+details.panel{margin-bottom:14px;padding:0}
+details.panel summary{cursor:pointer;list-style:none;padding:1rem 3.2rem 1rem 1.3rem;font-family:var(--font-px);font-size:.72rem;line-height:1.6;position:relative}
+details.panel summary::-webkit-details-marker{display:none}
+details.panel summary::after{content:"+";position:absolute;right:1.1rem;top:50%;transform:translateY(-50%);font-family:var(--font-vt);font-size:2rem;color:var(--violet-2)}
+details.panel[open] summary::after{content:"–"}
+details.panel p{margin:0;padding:0 1.3rem 1.2rem;color:var(--muted)}
+details[open] p{animation:fadeDown .35s both}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-8px)}}
 
-        /* ---------- Cennik ---------- */
-        .pricing-container {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 22px; max-width: 1300px; margin: 0 auto;
-        }
-        .price-card {
-            position: relative; background: var(--card);
-            border: 1px solid var(--card-border); padding: 30px 26px; border-radius: 28px;
-            transition: transform .35s, border-color .35s, box-shadow .35s; display: flex; flex-direction: column; text-align: left;
-            overflow: hidden;
-        }
-        .price-card::before {
-            content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0; transition: .35s;
-        }
-        .price-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 20px 50px rgba(0,162,255,.15); }
-        .price-card:hover::before { opacity: 1; }
-        .price-card h3 { font-size: 1.15rem; font-weight: 700; }
-        .price-card.featured { border-color: var(--accent); background: linear-gradient(180deg, rgba(0,162,255,.1), var(--card)); }
-        .price-card.featured h3 { color: var(--accent); }
-        .price-card.featured::before { opacity: 1; }
-        .cost { font-size: 2.6rem; font-weight: 900; color: var(--accent); margin: 14px 0 18px; line-height: 1; }
-        .cost small { font-size: 1rem; font-weight: 600; color: var(--muted); margin-left: 4px; }
-        .price-card ul { list-style: none; margin-bottom: 28px; color: #b4bdcb; font-size: .9rem; flex-grow: 1; display: grid; gap: 8px; }
-        .price-card ul li { display: flex; gap: 10px; align-items: flex-start; }
-        .price-card ul li::before { content: "✓"; color: var(--accent); font-weight: 900; }
-        .btn-buy {
-            display: block; padding: 14px; background: linear-gradient(45deg, #0077ff, var(--accent-2)); color: #fff;
-            border-radius: 50px; font-weight: 700; cursor: pointer; border: none; width: 100%; font-size: .9rem; font-family: inherit;
-            letter-spacing: .5px; transition: .3s;
-        }
-        .btn-buy:hover { filter: brightness(1.12); box-shadow: 0 8px 24px rgba(0,162,255,.45); }
+/* ---------- PODSTRONY PRODUKTÓW ---------- */
+.page{padding:36px 0 30px}
+.crumbs{font-family:var(--font-vt);font-size:1.3rem;color:var(--muted);margin-bottom:1.4rem}
+.crumbs a{color:var(--violet-2);text-decoration:none}
+.crumbs a:hover{text-decoration:underline}
+.product{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:34px;align-items:start}
+.product-visual{padding:1rem 1rem 1.2rem;text-align:center}
+.drag-stage{height:340px;display:grid;place-items:center;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none;
+  background:radial-gradient(ellipse at 50% 70%,rgba(26,124,255,.35),transparent 65%)}
+.drag-stage.grabbing{cursor:grabbing}
+.drag-stage .cube-slot{animation:none}
+.hint{font-family:var(--font-vt);font-size:1.25rem;color:var(--muted);margin:.3rem 0 0}
+.product-info h1{font-size:clamp(1.1rem,2.8vw,1.7rem);color:#fff;text-shadow:3px 3px 0 var(--violet-3);margin-bottom:1rem}
+.price-big{font-family:var(--font-vt);font-size:3.6rem;line-height:1;margin:0 0 1rem;color:var(--violet-2);text-shadow:3px 3px 0 #04061a}
+.price-big small{font-size:1.4rem;color:var(--muted);text-shadow:none;margin-left:.4rem}
+.product-info h2{font-size:.85rem;color:#fff;margin:1.6rem 0 .9rem}
+ul.checks{list-style:none;padding:0;margin:0 0 1.8rem;display:grid;gap:.6rem}
+ul.checks li{position:relative;padding-left:1.9rem;color:#d4e2fa}
+ul.checks li::before{content:"";position:absolute;left:0;top:.45em;width:12px;height:12px;background:#5fd16a;box-shadow:2px 2px 0 #1f6b2a}
+.secure{font-size:.92rem;color:var(--muted);margin:.9rem 0 0;text-align:center}
+.others{margin-top:60px}
+.others h2{font-size:.9rem;color:#fff;margin-bottom:1.1rem}
+.mini{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.mini a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:1rem 1.3rem;text-decoration:none;color:#fff;
+  font-family:var(--font-px);font-size:.72rem;transition:transform .25s,box-shadow .25s}
+.mini a:hover{transform:translateY(-5px) translateX(3px);box-shadow:inset 4px 4px 0 rgba(108,196,255,.3),inset -4px -4px 0 rgba(0,0,0,.4),0 0 0 4px var(--violet-2)}
+.mini span.p{font-family:var(--font-vt);font-size:1.8rem;color:var(--violet-2)}
 
-        .group-title {
-            display: flex; align-items: center; gap: 16px; max-width: 1300px; margin: 0 auto 22px;
-            font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
-        }
-        .group-title::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--card-border), transparent); }
-        .group-title i { color: var(--accent); }
-        .group-title + .pricing-container { margin-bottom: clamp(40px, 7vw, 70px); }
-        .pricing-container:last-child { margin-bottom: 0; }
+[data-route]:not([hidden]){animation:pageIn .6s cubic-bezier(.2,.8,.2,1) both}
+@keyframes pageIn{from{opacity:0;transform:translateY(18px)}}
 
-        /* ---------- Jak to działa ---------- */
-        .steps-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 18px; max-width: 1100px; margin: 0 auto; counter-reset: step; }
-        .step {
-            position: relative; background: var(--card); border: 1px solid var(--card-border); border-radius: 22px;
-            padding: 28px 20px 22px; text-align: center; transition: .3s;
-        }
-        .step:hover { border-color: rgba(0,162,255,.5); transform: translateY(-4px); }
-        .step-number {
-            width: 46px; height: 46px; border-radius: 14px; margin: 0 auto 14px; display: grid; place-items: center;
-            background: linear-gradient(135deg, #0077ff, var(--accent-2)); font-weight: 900; font-size: 1.1rem;
-        }
-        .step p { font-weight: 600; }
-        .how-cta { text-align: center; margin-top: 30px; }
+.reveal{opacity:0;transform:translateY(26px) scale(.97);
+  transition:opacity .6s ease,transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+.reveal.in{opacity:1;transform:none}
 
-        /* ---------- Opinie ---------- */
-        .reviews-section { width: 100%; overflow: hidden; position: relative; padding: 0 0 clamp(30px, 6vw, 60px); }
-        .reviews-section::before, .reviews-section::after {
-            content: ""; position: absolute; top: 0; bottom: 0; width: clamp(30px, 8vw, 120px); z-index: 2; pointer-events: none;
-        }
-        .reviews-section::before { left: 0; background: linear-gradient(90deg, var(--bg), transparent); }
-        .reviews-section::after { right: 0; background: linear-gradient(-90deg, var(--bg), transparent); }
-        .marquee { display: flex; gap: 22px; width: max-content; animation: scroll 35s linear infinite; will-change: transform; }
-        #jak-to-dziala, #opinie { content-visibility: auto; contain-intrinsic-size: auto 420px; }
-        .reviews-section:hover .marquee { animation-play-state: paused; }
-        .review-card {
-            background: var(--card); border: 1px solid rgba(0, 162, 255, 0.15); padding: 24px;
-            border-radius: 22px; width: clamp(250px, 80vw, 320px); flex-shrink: 0; display: flex; flex-direction: column; gap: 8px;
-        }
-        .review-card p { color: #d6dde8; font-size: .95rem; flex-grow: 1; }
-        .review-card strong { color: var(--accent-2); font-size: .85rem; }
-        .stars { color: #ffca28; font-size: .8rem; }
-        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 11px)); } }
+.res{display:table;margin:0 auto .8rem;font-family:var(--font-vt);font-size:1.45rem;line-height:1.3;color:#fff;background:var(--navy-3);border:3px solid var(--line);padding:0 12px}
+.res-big{font-family:var(--font-vt);font-size:1.7rem;color:var(--muted);margin:0 0 1rem;overflow-wrap:anywhere}
+.res-big b{font-weight:400;color:#fff;background:var(--violet-3);border:3px solid var(--line);padding:0 10px}
 
-        /* ---------- Media ---------- */
-        .media-header { text-align: center; text-transform: uppercase; font-weight: 900; letter-spacing: 3px; color: rgba(255,255,255,0.65); font-size: 1.05rem; }
-        .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 620px; margin: 22px auto 0; }
-        .tile {
-            height: clamp(80px, 14vw, 110px); border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            gap: 6px; font-size: clamp(1.6rem, 5vw, 2rem); color: #fff; transition: .3s; text-decoration: none; border: 1px solid transparent;
-        }
-        .tile span { font-size: .72rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
-        .tiktok { background: #111; border-color: rgba(255,255,255,.12); }
-        .youtube { background: #e00; }
-        .discord { background: #5865f2; }
-        .tile:hover { transform: translateY(-5px) scale(1.03); box-shadow: 0 14px 30px rgba(0,0,0,.4); }
+/* ---------- OKNO ZAKUPU ---------- */
+.modal{position:fixed;inset:0;z-index:120;display:grid;place-items:center;padding:20px;background:rgba(3,5,22,.88);animation:fadeIn .25s both}
+.modal-box{position:relative;width:100%;max-width:460px;padding:2rem 1.6rem 1.6rem;text-align:center;animation:pop .4s cubic-bezier(.2,1.2,.3,1) both}
+.modal-box h2{font-size:clamp(.85rem,2.6vw,1.05rem);color:#fff;text-shadow:3px 3px 0 var(--violet-3);margin:0 0 .8rem;padding:0 28px}
+.modal-sub{font-family:var(--font-vt);font-size:1.5rem;color:var(--violet-2);margin:0 0 .4rem;line-height:1.2}
+.nick{width:100%;margin:.6rem 0 .3rem;padding:.7rem 1rem;font-family:var(--font-vt);font-size:1.7rem;text-align:center;color:#fff;
+  background:#04061a;border:4px solid var(--line);box-shadow:inset 3px 3px 0 rgba(0,0,0,.5);outline:none;border-radius:0}
+.nick:focus{border-color:var(--violet-2)}
+.err{min-height:1.5em;margin:0 0 .7rem;color:#ff7b7b;font-size:.92rem}
+.pay-opt{width:100%;margin-bottom:6px;font-size:1.6rem}
+.modal-note{margin:.6rem 0 0;font-size:.92rem;color:var(--muted)}
+.modal-x{position:absolute;top:8px;right:8px;width:40px;height:40px;font-family:var(--font-vt);font-size:1.8rem;line-height:1;color:#fff;background:var(--navy-3);
+  border:3px solid var(--line);cursor:pointer;box-shadow:inset 3px 3px 0 rgba(255,255,255,.2),inset -3px -3px 0 rgba(0,0,0,.35)}
+.modal-x:hover{background:#2c3d96}
+@keyframes fadeIn{from{opacity:0}}
+@keyframes pop{from{opacity:0;transform:translateY(30px) scale(.85)}}
 
-        /* ---------- Modal zakupu ---------- */
-        #purchase-view {
-            display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.88);
-            z-index: 1000; justify-content: center; align-items: center; padding: 16px;
-        }
-        #purchase-view.open { display: flex; animation: fade .25s ease; }
-        @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
-        .purchase-card {
-            background: #0e1117; padding: clamp(26px, 6vw, 40px); border-radius: 28px; border: 1px solid var(--accent);
-            text-align: center; width: 100%; max-width: 420px; box-shadow: 0 30px 80px rgba(0,162,255,.2);
-            animation: pop .3s cubic-bezier(.2,.9,.3,1.2);
-        }
-        @keyframes pop { from { transform: scale(.92); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-        .purchase-card h2 { color: var(--accent); font-size: 1.4rem; }
-        .purchase-card .hint { color: var(--muted); font-size: .85rem; margin-top: 6px; }
-        .purchase-card input {
-            width: 100%; padding: 15px; margin: 22px 0 6px; border-radius: 14px; border: 1px solid #2a3140;
-            background: #05070b; color: #fff; text-align: center; outline: none; font-size: 1rem; font-family: inherit; transition: .25s;
-        }
-        .purchase-card input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(0,162,255,.15); }
-        .error-msg { color: #ff6b6b; font-size: .82rem; min-height: 1.3em; margin-bottom: 12px; }
-        .cancel { margin-top: 14px; cursor: pointer; color: #6b7585; background: none; border: none; font-family: inherit; font-size: .9rem; }
-        .cancel:hover { color: #fff; }
+/* ---------- EKRAN ŁADOWANIA ---------- */
+#loader{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:linear-gradient(180deg,#050a1e,#102a70 70%,#1a4a9a);animation:ldGone .01s 8s forwards}
+@keyframes ldGone{to{opacity:0;visibility:hidden;pointer-events:none}}
+.ld-inner{text-align:center;padding:20px}
+.ld-cube{display:grid;place-items:center;height:200px;animation:bob 2.4s ease-in-out infinite}
+.ld-title{font-family:var(--font-px);font-size:clamp(.9rem,3.6vw,1.4rem);color:#fff;text-shadow:3px 3px 0 var(--violet-3);margin:.5rem 0 1.4rem}
+.ld-title b{color:var(--violet-2);font-weight:400;margin-left:.5em}
+.ld-bar{width:min(320px,72vw);height:28px;margin:0 auto;border:4px solid var(--line);background:#04061a;box-shadow:inset 3px 3px 0 rgba(0,0,0,.5),0 0 0 3px rgba(108,196,255,.25)}
+.ld-bar i{display:block;height:100%;width:0;background:repeating-linear-gradient(90deg,#1a7cff 0 16px,#0f5ad6 16px 20px);transition:width .15s linear}
+.ld-text{font-family:var(--font-vt);font-size:1.5rem;color:var(--violet-2);margin:.9rem 0 0}
 
-        footer { text-align: center; padding: 34px 16px calc(34px + env(safe-area-inset-bottom)); color: #5b6472; font-size: .8rem; border-top: 1px solid var(--card-border); }
+/* ---------- SOCIALE ---------- */
+.socials{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px}
+.soc{display:flex;align-items:center;gap:1.2rem;padding:1.3rem 1.5rem;text-decoration:none;color:inherit;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.soc:hover,.soc:focus-visible{transform:translateY(-8px);
+  box-shadow:inset 4px 4px 0 rgba(108,196,255,.3),inset -4px -4px 0 rgba(0,0,0,.4),0 0 0 4px var(--violet-2),0 0 40px rgba(26,124,255,.5)}
+.soc .ic{flex:none;width:72px;height:72px;display:grid;place-items:center;background:var(--violet);border:4px solid var(--line);color:#fff;font-size:2rem;
+  box-shadow:inset 4px 4px 0 rgba(255,255,255,.3),inset -4px -4px 0 rgba(0,0,0,.35);transition:background .25s,transform .35s cubic-bezier(.2,1.4,.4,1)}
+.soc .ic svg{width:36px;height:36px;fill:currentColor}
+.soc:hover .ic,.soc:focus-visible .ic{transform:rotate(-6deg) scale(1.08)}
+.soc.yt:hover .ic,.soc.yt:focus-visible .ic{background:#e60023}
+.soc.dc .ic{background:#5865f2}
+.soc.tt:hover .ic,.soc.tt:focus-visible .ic{background:#0b0b13;box-shadow:inset 4px 4px 0 rgba(255,255,255,.12),inset -4px -4px 0 rgba(0,0,0,.35),-4px -4px 0 #25f4ee,4px 4px 0 #fe2c55}
+.soc h3{font-size:.9rem;color:#fff}
+.soc .go{margin-left:auto;font-family:var(--font-vt);font-size:2rem;color:var(--violet-2);transition:transform .3s}
+.soc:hover .go{transform:translateX(6px)}
 
-        /* ---------- Responsywność ---------- */
-        @media (max-width: 820px) {
-            .nav-links li:first-child { display: none; }
-            .nav-socials { border-left: none; padding-left: 0; }
-            .project-info-flat { max-width: 560px; text-align: center; border-left: 1px solid var(--card-border); border-top: 4px solid var(--accent); border-radius: var(--radius); }
-            .hero-main-layout { flex-direction: column-reverse; }
-        }
-        @media (max-width: 520px) {
-            .stats { gap: 8px; }
-            .stats-item { padding: 14px 6px; border-radius: 16px; }
-            .stats-item small { font-size: .6rem; letter-spacing: .5px; }
-            .nav-socials a { width: 34px; height: 34px; }
-            .btn { width: 100%; }
-            .cta-row { width: 100%; }
-        }
-        @media (min-width: 1800px) {
-            html { font-size: 18px; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-            .marquee { flex-wrap: wrap; width: auto; justify-content: center; }
-        }
-    </style>
+/* ---------- DISCORD ---------- */
+.discord-box{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;padding:1.8rem 2rem}
+.discord-box .ic{width:76px;height:76px;display:grid;place-items:center;font-size:2.4rem;background:#5865f2;border:4px solid var(--line);
+  box-shadow:inset 4px 4px 0 rgba(255,255,255,.3),inset -4px -4px 0 rgba(0,0,0,.35)}
+.discord-box h2,.discord-box h3{font-size:clamp(.9rem,2.2vw,1.2rem);color:#fff;text-shadow:3px 3px 0 var(--violet-3);margin-bottom:.6rem}
+.discord-box p{margin:0;color:var(--muted)}
+.btn.discord{background:#5865f2}
+.btn.discord:hover,.btn.discord:focus-visible{background:#6b77f5}
+@media (max-width:860px){.discord-box{grid-template-columns:1fr;text-align:center;justify-items:center}}
+
+/* ---------- SCENA: SWIEBA NA LIANIE I KANAPIE ---------- */
+.scene{position:fixed;inset:0;z-index:70;overflow:hidden;pointer-events:none;--k:5px}
+.scene .couch{opacity:0;transition:opacity .4s}
+.scene.on .couch{opacity:1}
+.scene .char{visibility:hidden}
+.scene.on .char{visibility:visible}
+@media (max-width:560px){.bubble{font-size:1.2rem;padding:.45rem .7rem .5rem}.bubble span{font-size:1rem}.hold-btn{font-size:1.2rem;white-space:normal;line-height:1.05;padding:.5rem 1rem}}
+.couch{position:absolute;z-index:2;left:var(--x0,60%);bottom:0;width:calc(var(--k)*26);height:calc(var(--k)*22);transform:scaleX(-1)}
+.couch i{position:absolute;display:block;border:4px solid var(--line);background:#5865f2;
+  box-shadow:inset 4px 4px 0 rgba(255,255,255,.22),inset -4px -4px 0 rgba(0,0,0,.3)}
+.c-back{left:0;bottom:0;width:calc(var(--k)*7);height:100%}
+.c-seat{left:0;bottom:0;width:100%;height:calc(var(--k)*9);background:#4752c4!important}
+.c-cush{left:calc(var(--k)*7);bottom:calc(var(--k)*5);width:calc(var(--k)*19);height:calc(var(--k)*4);background:#6d79ff!important}
+.c-pillow{left:calc(var(--k)*5.5);bottom:calc(var(--k)*9);width:calc(var(--k)*4);height:calc(var(--k)*5);background:#e7b94a!important;transform:rotate(-8deg)}
+.rope{position:absolute;left:0;top:0;z-index:3;width:calc(var(--k)*1.2);margin-left:calc(var(--k)*-.6);transform-origin:50% 0;will-change:transform;
+  background:repeating-linear-gradient(180deg,#9a6a35 0 6px,#6b4a2e 6px 12px);border:2px solid #3b2514;transition:opacity .6s}
+.rope.gone{opacity:0}
+.char{position:absolute;left:0;top:0;width:0;height:0;z-index:5;transform-style:preserve-3d;cursor:pointer;will-change:transform;pointer-events:auto}
+.pt{position:absolute;transform-style:preserve-3d}
+.box{position:absolute;left:0;top:0;transform-style:preserve-3d}
+.fc{position:absolute;display:block;background-image:var(--skin);background-size:calc(var(--k)*64) calc(var(--k)*var(--skh,64));
+  image-rendering:pixelated;backface-visibility:hidden}
+.fc::after{content:"";position:absolute;inset:0;background:rgba(0,0,12,var(--sh,0))}
+.hand{position:absolute;left:50%;bottom:0;width:2px;height:2px;pointer-events:none}
+.bubble{position:absolute;z-index:6;max-width:min(270px,calc(100% - 16px));padding:.55rem .9rem .6rem;text-align:left;cursor:pointer;
+  font-family:var(--font-vt);font-size:1.5rem;line-height:1.1;color:#fff;background:var(--navy-3);border:4px solid var(--line);
+  box-shadow:inset 3px 3px 0 rgba(255,255,255,.2),inset -3px -3px 0 rgba(0,0,0,.35),0 6px 0 rgba(0,0,0,.25);
+  opacity:0;transform:scale(.6);transform-origin:var(--tail,24px) 100%;pointer-events:none;transition:opacity .25s,transform .35s cubic-bezier(.2,1.4,.4,1)}
+.bubble.show{opacity:1;transform:none;pointer-events:auto}
+.bubble:hover{background:#2c3d96}
+.bubble span{display:block;margin-top:.25rem;font-size:1.15rem;color:var(--violet-2)}
+.bubble::after{content:"";position:absolute;left:var(--tail,24px);bottom:-14px;width:14px;height:14px;background:var(--navy-3);
+  border-right:4px solid var(--line);border-bottom:4px solid var(--line);transform:rotate(45deg) skew(8deg,8deg)}
+.hold-btn{position:absolute;z-index:7;white-space:nowrap;max-width:calc(100% - 16px);text-align:center;font-size:1.4rem;opacity:0;pointer-events:none;transform:scale(.5);transform-origin:50% 100%;
+  transition:opacity .25s,transform .4s cubic-bezier(.2,1.4,.4,1)}
+.hold-btn.show{opacity:1;pointer-events:auto;transform:none}
+@media (prefers-reduced-motion:reduce){.bubble,.hold-btn,.rope,.scene .couch{transition:none}}
+
+/* ---------- STOPKA / GRUNT ---------- */
+.ground{position:relative;z-index:2;height:56px;margin-top:80px;background:var(--tx-grass-side) repeat-x left bottom/56px 56px;image-rendering:pixelated}
+footer{position:relative;z-index:2;padding:34px 0 40px;color:#cdd8f2;font-size:.95rem;
+  background:linear-gradient(rgba(7,11,36,.62),rgba(7,11,36,.85)),var(--tx-dirt);background-size:auto,56px 56px;image-rendering:pixelated}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between}
+footer h2{font-size:.7rem;color:#fff;margin-bottom:.7rem}
+footer small{display:block;max-width:420px;color:#9aa8cf;margin-top:.5rem}
+
+/* ---------- ZASŁONA PRZEJŚCIA + SPADAJĄCA TRAWA ---------- */
+#curtain{position:fixed;inset:0;z-index:100;display:grid;pointer-events:none;overflow:hidden}
+#curtain i{display:block;background-size:100% 100%;image-rendering:pixelated;box-shadow:inset 0 0 0 2px rgba(0,0,0,.28);will-change:transform}
+#drops{position:fixed;inset:0;z-index:60;pointer-events:none;overflow:hidden}
+.sword{position:absolute;top:0;background:var(--tx-sword) center/100% 100% no-repeat;image-rendering:pixelated;will-change:transform}
+
+/* ---------- RESPONSYWNOŚĆ ---------- */
+@media (max-width:860px){
+  .hero-grid,.product{grid-template-columns:minmax(0,1fr)}
+  .hero-blocks{height:430px;max-width:460px;margin:0 auto;width:100%}
+  section.block{padding-top:64px}
+}
+@media (max-width:560px){
+  nav.main a.opt{display:none}
+  .brand{font-size:.68rem}
+  .hero{padding-top:40px}
+  .stat{padding:1rem .4rem 1.1rem}
+  .stat span{font-size:clamp(.8rem,3.7vw,1.05rem);letter-spacing:0}
+  .stats{gap:8px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
 </head>
 <body>
-    <a class="skip-link" href="#oferta">Przejdź do oferty</a>
+<a class="skip" href="#main">Przejdź do treści</a>
 
-    <div class="bg-gradient" aria-hidden="true"></div>
-    <div class="bg-grid" aria-hidden="true"></div>
-    <div class="blob" aria-hidden="true"></div>
+<div class="sky" aria-hidden="true" id="sky"><div class="moon"></div></div>
+<div id="drops" aria-hidden="true"></div>
+<div id="loader" role="status" aria-live="polite">
+  <div class="ld-inner">
+    <div class="ld-cube" id="ldCube" aria-hidden="true"></div>
+    <p class="ld-title">SWIEBA<b>CLIENT</b></p>
+    <div class="ld-bar" aria-hidden="true"><i id="ldFill"></i></div>
+    <p class="ld-text" id="ldText">Ładowanie świata...</p>
+  </div>
+</div>
+<div id="curtain" aria-hidden="true"></div>
 
-    <header class="site-header">
-        <nav aria-label="Nawigacja główna">
-            <a class="logo" href="#top" aria-label="SwiebaClient – strona główna">SWIEBACLIENT</a>
-            <ul class="nav-links">
-                <li><a href="#oferta">Oferta</a></li>
-                <li><a href="#jak-to-dziala">Jak to działa</a></li>
-                <li><a href="#opinie">Opinie</a></li>
-                <li class="nav-socials">
-                    <a href="https://discord.gg/hF6JbP63Xd" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                    <a href="https://tiktok.com/@wvnch4j" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://youtube.com/@wvnch4j" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#/" data-scroll="top" aria-label="SwiebaClient – strona główna">
+      <span data-cube="diamond" data-size="26"></span>
+      <span>SWIEBA<b>CLIENT</b></span>
+    </a>
+    <nav class="main" aria-label="Główna nawigacja">
+      <a href="#/" data-scroll="produkty">Oferta</a>
+      <a href="#/" data-scroll="jak-to-dziala" class="opt">Jak to działa</a>
+      <a href="#/" data-scroll="opinie" class="opt">Opinie</a>
+      <a href="#/" data-scroll="discord">Discord</a>
+      <a href="#/" data-scroll="faq">FAQ</a>
+    </nav>
+  </div>
+</header>
 
-    <main id="top">
-        <section class="hero" aria-labelledby="hero-title">
-            <span class="badge"><i class="fas fa-bolt"></i> Minecraft 1.8.9 • BedWars</span>
-            <h1 id="hero-title">SwiebaClient</h1>
-            <p class="tagline">Najlepszy klient do bedwars – szybki, wygodny i stale aktualizowany.</p>
+<main id="main">
 
-            <div class="hero-main-layout">
-                <div class="project-info-flat">
-                    <h2>O cliencie</h2>
-                    <p>
-                        <strong>SwiebaClient</strong> to profesjonalny klient do Minecrafta 1.8.9, oferujący szybkie działanie, intuicyjne mody i konfigurowalne opcje. Dzięki niemu gracze zyskują przewagę w rozgrywce, komfort użytkowania oraz wsparcie i aktualizacje od twórców.
-                    </p>
-                </div>
-
-                <div class="skin-render-box">
-                    <img src="custom-ava.png" alt="Skin Minecraft SwiebaClient" width="550" height="800" fetchpriority="high" decoding="async"
-                         onerror="this.onerror=null;this.src='https://mc-heads.net/body/steve/right'">
-                </div>
-            </div>
-
-            <div class="cta-row">
-                <a href="#oferta" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Zobacz ofertę</a>
-                <a href="https://discord.gg/hF6JbP63Xd" target="_blank" rel="noopener noreferrer" class="btn btn-ghost"><i class="fab fa-discord"></i> Dołącz na Discord</a>
-            </div>
-        </section>
-
-        <section class="stats" aria-label="Statystyki">
-            <div class="stats-item"><span>250+</span><small><i class="fas fa-fire"></i> Użytkowników</small></div>
-            <div class="stats-item"><span>4.9</span><small><i class="fas fa-star"></i> Ocena</small></div>
-            <div class="stats-item"><span>100%</span><small><i class="fas fa-shield-alt"></i> Bezpieczeństwa</small></div>
-        </section>
-
-        <section id="oferta" aria-labelledby="oferta-title">
-            <div class="section-title">
-                <h2 id="oferta-title">Nasza <em>oferta</em></h2>
-                <p>Wybierz produkt i odbierz go w kilka minut.</p>
-            </div>
-
-            <h3 class="group-title"><i class="fas fa-gamepad"></i> Klient i configi</h3>
-            <div class="pricing-container">
-                <article class="price-card">
-                    <h3>Config</h3>
-                    <div class="cost">10<small>PLN</small></div>
-                    <ul><li>Tworzymy config dla ciebie</li><li>Oraz dowolne ustawienia</li></ul>
-                    <button class="btn-buy" type="button" data-plan="Config">KUP TERAZ</button>
-                </article>
-
-                <article class="price-card">
-                    <h3>Swieba Client</h3>
-                    <div class="cost">30<small>PLN</small></div>
-                    <ul><li>Pełny dostęp</li><li>Modyfikacje</li><li>Na zawsze</li></ul>
-                    <button class="btn-buy" type="button" data-plan="Standard">KUP TERAZ</button>
-                </article>
-            </div>
-
-            <h3 class="group-title"><i class="fas fa-paint-roller"></i> Texturepacki 1.8.9</h3>
-            <div class="pricing-container">
-                <article class="price-card">
-                    <h3>Texturepack</h3>
-                    <div class="cost">30<small>PLN</small></div>
-                    <ul><li>Custom Design</li><li>Wersja 1.8.9</li></ul>
-                    <button class="btn-buy" type="button" data-plan="Texturepack">KUP TERAZ</button>
-                </article>
-
-                <article class="price-card">
-                    <h3>Texturepack</h3>
-                    <div class="cost">40<small>PLN</small></div>
-                    <ul><li>Custom Design</li><li>Wersja 1.8.9</li><li>Lepsze tekstury</li></ul>
-                    <button class="btn-buy" type="button" data-plan="Texturepack_40">KUP TERAZ</button>
-                </article>
-
-                <article class="price-card featured">
-                    <h3>Texturepack</h3>
-                    <div class="cost">50<small>PLN</small></div>
-                    <ul><li>Premium Design</li><li>Wersja 1.8.9</li><li>Unikalne tekstury</li></ul>
-                    <button class="btn-buy" type="button" data-plan="Texturepack_50">KUP TERAZ</button>
-                </article>
-            </div>
-        </section>
-
-        <section id="jak-to-dziala" aria-labelledby="jak-title">
-            <div class="section-title">
-                <h2 id="jak-title">Jak to <em>działa?</em></h2>
-            </div>
-            <div class="steps-container">
-                <div class="step"><div class="step-number">1</div><p>Kupujesz produkt</p></div>
-                <div class="step"><div class="step-number">2</div><p>Dołączasz na Discord</p></div>
-                <div class="step"><div class="step-number">3</div><p>Otwierasz ticket</p></div>
-                <div class="step"><div class="step-number">4</div><p>Odbierasz klienta</p></div>
-            </div>
-            <div class="how-cta">
-                <a href="https://discord.gg/hF6JbP63Xd" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fab fa-discord"></i> Przejdź na Discord</a>
-            </div>
-        </section>
-
-        <section id="opinie" class="reviews-section" aria-labelledby="opinie-title" style="padding-left:0;padding-right:0;">
-            <div class="section-title">
-                <h2 id="opinie-title">Opinie <em>graczy</em></h2>
-            </div>
-            <div class="marquee" id="marquee">
-                <figure class="review-card">
-                    <div class="stars" aria-label="5 na 5 gwiazdek"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"Najlepszy klient, jaki kiedykolwiek używałem!"</p>
-                    <strong>- N3ko_S33k_PLK</strong>
-                </figure>
-                <figure class="review-card">
-                    <div class="stars" aria-label="5 na 5 gwiazdek"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"Świetna wydajność i prosty w obsłudze."</p>
-                    <strong>- wyc1nak</strong>
-                </figure>
-                <figure class="review-card">
-                    <div class="stars" aria-label="5 na 5 gwiazdek"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"Polecam każdemu, kto gra w Minecrafta 1.8.9."</p>
-                    <strong>- Histears</strong>
-                </figure>
-                <figure class="review-card">
-                    <div class="stars" aria-label="5 na 5 gwiazdek"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"Legit i polecam"</p>
-                    <strong>- nwm.pl</strong>
-                </figure>
-                <figure class="review-card">
-                    <div class="stars" aria-label="5 na 5 gwiazdek"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"fajny client"</p>
-                    <strong>- $wxnter$</strong>
-                </figure>
-                <figure class="review-card">
-                    <div class="stars" aria-label="5 na 5 gwiazdek"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"Teraz można rozwalać stiwkow"</p>
-                    <strong>- Tojaorzech</strong>
-                </figure>
-            </div>
-        </section>
-
-        <section aria-labelledby="media-title" style="padding-top:0;">
-            <h2 class="media-header" id="media-title">Nasze Media</h2>
-            <div class="social-grid">
-                <a href="https://tiktok.com/@wvnch4j" class="tile tiktok" target="_blank" rel="noopener noreferrer" aria-label="TikTok SwiebaClient"><i class="fab fa-tiktok"></i><span>TikTok</span></a>
-                <a href="https://youtube.com/@wvnch4j" class="tile youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube SwiebaClient"><i class="fab fa-youtube"></i><span>YouTube</span></a>
-                <a href="https://discord.gg/hF6JbP63Xd" class="tile discord" target="_blank" rel="noopener noreferrer" aria-label="Discord SwiebaClient"><i class="fab fa-discord"></i><span>Discord</span></a>
-            </div>
-        </section>
-    </main>
-
-    <footer>&copy; 2026 SwiebaClient. Wszystkie prawa zastrzeżone.</footer>
-
-    <!-- Modal zakupu -->
-    <div id="purchase-view" role="dialog" aria-modal="true" aria-labelledby="plan-name">
-        <div class="purchase-card">
-            <h2 id="plan-name">Zakup</h2>
-            <p class="hint">Podaj swój nick z Minecrafta</p>
-            <input type="text" id="nick-input" placeholder="Nick z Minecraft" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="16" inputmode="text">
-            <div class="error-msg" id="nick-error" role="alert"></div>
-            <button class="btn-buy" type="button" id="confirm-btn">Potwierdź</button>
-            <button class="cancel" type="button" id="cancel-btn">Anuluj</button>
+<!-- ====================== STRONA GŁÓWNA ====================== -->
+<section data-route="home">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Minecraft 1.8.9 · BedWars</p>
+        <h1>Swieba<span>Client</span></h1>
+        <p class="lead">SwiebaClient to profesjonalny klient do Minecrafta 1.8.9, oferujący szybkie działanie, intuicyjne mody i konfigurowalne opcje. Dzięki niemu gracze zyskują przewagę w rozgrywce, komfort użytkowania oraz wsparcie i aktualizacje od twórców.</p>
+        <div class="cta">
+          <a class="btn" href="#/" data-scroll="produkty">Zobacz ofertę</a>
+          <a class="btn ghost" href="#/" data-scroll="jak-to-dziala">Jak to działa?</a>
         </div>
+        <ul class="badges">
+          <li>Płatność przez Stripe</li>
+          <li>Wsparcie na Discordzie</li>
+          <li>Aktualizacje od twórców</li>
+        </ul>
+      </div>
+      <div class="hero-blocks">
+        <div class="skin">
+          <img src="custom-ava.png" alt="Skin Minecraft SwiebaClient" width="550" height="800" fetchpriority="high" decoding="async"
+               onerror="this.onerror=null;this.src='https://mc-heads.net/body/steve/right'">
+        </div>
+        <a class="hb hb2" href="#/swiebaclient" aria-label="Swieba Client – 30 zł"><span data-cube="diamondSC" data-size="96"></span></a>
+        <a class="hb hb3" href="#/config" aria-label="Config – 10 zł"><span data-cube="lapisCFG" data-size="84"></span></a>
+      </div>
     </div>
+  </div>
 
-    <script>
-        // Duplikat opinii dla płynnej, nieskończonej pętli
-        (function () {
-            var marquee = document.getElementById('marquee');
-            if (!marquee) return;
-            var clone = marquee.innerHTML;
-            marquee.insertAdjacentHTML('beforeend', clone.replace(/<figure /g, '<figure aria-hidden="true" '));
-        })();
+  <section class="block" style="padding-top:20px" aria-label="Statystyki">
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat panel reveal" style="--d:.0s"><b>250+</b><span>Użytkowników</span></div>
+        <div class="stat panel reveal" style="--d:.1s"><b>4.9</b><span>Ocena</span></div>
+        <div class="stat panel reveal" style="--d:.2s"><b>100%</b><span>Bezpieczeństwa</span></div>
+      </div>
+    </div>
+  </section>
 
-        var LINKS = {
-            Standard:       "https://buy.stripe.com/fZu6oA5vM6uI2Xr44O1Nu02",
-            Config:         "https://buy.stripe.com/fZudR2cYecT6fKdcBk1Nu04",
-            Texturepack:    "https://buy.stripe.com/5kQfZa2jA4mA9lPgRA1Nu03",
-            Texturepack_40: "https://buy.stripe.com/4gM14g8HYdXa7dHgRA1Nu01",
-            Texturepack_50: "https://buy.stripe.com/eVq7sE5vMdXa9lP8l41Nu00"
-        };
-        var NAMES = {
-            Standard: "Swieba Client", Config: "Config", Texturepack: "Texturepack 30 PLN",
-            Texturepack_40: "Texturepack 40 PLN", Texturepack_50: "Texturepack 50 PLN"
-        };
+  <section class="block" id="produkty">
+    <div class="wrap">
+      <h2 class="title reveal">Wybierz swój blok</h2>
+      <p class="sub reveal">Klient albo config – najedź na blok i kliknij, aby zobaczyć szczegóły.</p>
+      <div class="grid2">
+        <div class="reveal" style="--d:.05s">
+          <article class="card panel">
+            <a class="card-link" href="#/swiebaclient" aria-label="Swieba Client – 30 zł – zobacz szczegóły" title="Swieba Client – klient do Minecraft 1.8.9 – 30 zł">
+              <div class="stage"><span data-cube="diamondSC" data-size="118"></span><i class="shadow"></i></div>
+              <span class="tag">Pełny dostęp</span>
+              <h3>Swieba Client</h3>
+              <p class="price">30 zł</p>
+              <p class="res">Minecraft 1.8.9</p>
+              <p class="d">Pełny dostęp, modyfikacje i dostęp na zawsze.</p>
+              <span class="btn">Zobacz</span>
+            </a>
+          </article>
+        </div>
+        <div class="reveal" style="--d:.18s">
+          <article class="card panel">
+            <a class="card-link" href="#/config" aria-label="Config – 10 zł – zobacz szczegóły" title="Config do Minecraft 1.8.9 – 10 zł">
+              <div class="stage"><span data-cube="lapisCFG" data-size="118"></span><i class="shadow"></i></div>
+              <span class="tag">Dla Ciebie</span>
+              <h3>Config</h3>
+              <p class="price">10 zł</p>
+              <p class="res">Dowolne ustawienia</p>
+              <p class="d">Tworzymy config dla Ciebie, z dowolnymi ustawieniami.</p>
+              <span class="btn">Zobacz</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        var selectedPlan = "";
-        var view = document.getElementById('purchase-view');
-        var input = document.getElementById('nick-input');
-        var errorBox = document.getElementById('nick-error');
-        var lastFocus = null;
+  <section class="block" id="dlaczego">
+    <div class="wrap">
+      <h2 class="title reveal">Dlaczego SwiebaClient?</h2>
+      <p class="sub reveal">Klient zrobiony z myślą o graczach, którzy chcą wygody i przewagi w rozgrywce.</p>
+      <div class="features">
+        <div class="feat panel reveal" style="--d:.0s"><div class="ic" aria-hidden="true">⚡</div><h3>Szybkie działanie</h3><p>Płynna gra bez zbędnego obciążania komputera.</p></div>
+        <div class="feat panel reveal" style="--d:.1s"><div class="ic" aria-hidden="true">🧩</div><h3>Intuicyjne mody</h3><p>Modyfikacje, które łatwo włączysz i skonfigurujesz.</p></div>
+        <div class="feat panel reveal" style="--d:.2s"><div class="ic" aria-hidden="true">⚙️</div><h3>Konfigurowalne opcje</h3><p>Ustaw klienta po swojemu albo zamów gotowy config.</p></div>
+        <div class="feat panel reveal" style="--d:.3s"><div class="ic" aria-hidden="true">🛠️</div><h3>Wsparcie i aktualizacje</h3><p>Pomoc i aktualizacje od twórców klienta.</p></div>
+      </div>
+    </div>
+  </section>
 
-        function openPurchase(plan) {
-            selectedPlan = plan;
-            lastFocus = document.activeElement;
-            document.getElementById('plan-name').textContent = "Zakup: " + (NAMES[plan] || plan);
-            errorBox.textContent = "";
-            view.classList.add('open');
-            document.body.style.overflow = 'hidden';
-            setTimeout(function () { input.focus(); }, 50);
-        }
-        function closePurchase() {
-            view.classList.remove('open');
-            document.body.style.overflow = '';
-            if (lastFocus) lastFocus.focus();
-        }
-        function completePurchase() {
-            var nick = input.value.trim();
-            if (!/^[A-Za-z0-9_]{3,16}$/.test(nick)) {
-                errorBox.textContent = "Wpisz poprawny nick (3–16 znaków: litery, cyfry, _).";
-                input.focus();
-                return;
-            }
-            var url = LINKS[selectedPlan];
-            if (!url) return;
-            // client_reference_id pozwala zobaczyć nick w płatności Stripe
-            window.location.href = url + "?client_reference_id=" + encodeURIComponent(nick);
-        }
+  <section class="block" id="jak-to-dziala">
+    <div class="wrap">
+      <h2 class="title reveal">Jak to działa?</h2>
+      <p class="sub reveal">Cztery proste kroki od zakupu do grania.</p>
+      <ol class="steps">
+        <li class="panel reveal" style="--d:.0s"><h3>Kupujesz produkt</h3><p>Wybierz klienta lub config i opłać zamówienie przez Stripe.</p></li>
+        <li class="panel reveal" style="--d:.1s"><h3>Dołączasz na Discord</h3><p>Wejdź na nasz serwer Discord.</p></li>
+        <li class="panel reveal" style="--d:.2s"><h3>Otwierasz ticket</h3><p>Stwórz ticket, abyśmy mogli zrealizować Twoje zamówienie.</p></li>
+        <li class="panel reveal" style="--d:.3s"><h3>Odbierasz klienta</h3><p>Odbierz swój produkt i zacznij grać.</p></li>
+      </ol>
+    </div>
+  </section>
 
-        document.querySelectorAll('.btn-buy[data-plan]').forEach(function (btn) {
-            btn.addEventListener('click', function () { openPurchase(btn.getAttribute('data-plan')); });
-        });
-        document.getElementById('confirm-btn').addEventListener('click', completePurchase);
-        document.getElementById('cancel-btn').addEventListener('click', closePurchase);
-        view.addEventListener('click', function (e) { if (e.target === view) closePurchase(); });
-        input.addEventListener('keydown', function (e) { if (e.key === 'Enter') completePurchase(); });
-        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && view.classList.contains('open')) closePurchase(); });
-    </script>
+  <section class="block" id="opinie">
+    <div class="wrap">
+      <h2 class="title reveal">Opinie graczy</h2>
+      <p class="sub reveal">Co o SwiebaClient mówią użytkownicy.</p>
+      <div class="grid3">
+        <div class="reveal" style="--d:.0s"><div class="rev panel"><span class="st" aria-label="5 na 5 gwiazdek">★★★★★</span><p>"Najlepszy klient, jaki kiedykolwiek używałem!"</p><b>- N3ko_S33k_PLK</b></div></div>
+        <div class="reveal" style="--d:.08s"><div class="rev panel"><span class="st" aria-label="5 na 5 gwiazdek">★★★★★</span><p>"Świetna wydajność i prosty w obsłudze."</p><b>- wyc1nak</b></div></div>
+        <div class="reveal" style="--d:.16s"><div class="rev panel"><span class="st" aria-label="5 na 5 gwiazdek">★★★★★</span><p>"Polecam każdemu, kto gra w Minecrafta 1.8.9."</p><b>- Histears</b></div></div>
+        <div class="reveal" style="--d:.0s"><div class="rev panel"><span class="st" aria-label="5 na 5 gwiazdek">★★★★★</span><p>"Legit i polecam"</p><b>- nwm.pl</b></div></div>
+        <div class="reveal" style="--d:.08s"><div class="rev panel"><span class="st" aria-label="5 na 5 gwiazdek">★★★★★</span><p>"fajny client"</p><b>- $wxnter$</b></div></div>
+        <div class="reveal" style="--d:.16s"><div class="rev panel"><span class="st" aria-label="5 na 5 gwiazdek">★★★★★</span><p>"Teraz można rozwalać stiwkow"</p><b>- Tojaorzech</b></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="discord">
+    <div class="wrap">
+      <h2 class="title reveal">Masz pytania? Dołącz na nasz Discord</h2>
+      <p class="sub reveal">Po zakupie wejdź na serwer, otwórz ticket i odbierz swojego klienta. Na Discordzie pomożemy Ci też z konfiguracją i odpowiemy na pytania.</p>
+      <div class="discord-box panel reveal">
+        <div class="ic" aria-hidden="true">💬</div>
+        <div>
+          <h3>Serwer Discord SwiebaClient</h3>
+          <p>Otwórz ticket, odbierz swój produkt i zadaj pytanie – wszystko w jednym miejscu.</p>
+        </div>
+        <a class="btn discord" href="https://discord.gg/hF6JbP63Xd" target="_blank" rel="noopener noreferrer">Wejdź na nasz Discord</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="sociale">
+    <div class="wrap">
+      <h2 class="title reveal">Nasze media</h2>
+      <p class="sub reveal">Obserwuj nas i bądź na bieżąco.</p>
+      <div class="socials">
+        <div class="reveal" style="--d:.0s">
+          <a class="soc tt panel" href="https://tiktok.com/@wvnch4j" target="_blank" rel="noopener noreferrer" aria-label="SwiebaClient na TikToku">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></span>
+            <h3>TikTok</h3>
+            <span class="go" aria-hidden="true">›</span>
+          </a>
+        </div>
+        <div class="reveal" style="--d:.1s">
+          <a class="soc yt panel" href="https://youtube.com/@wvnch4j" target="_blank" rel="noopener noreferrer" aria-label="SwiebaClient na YouTube">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></span>
+            <h3>YouTube</h3>
+            <span class="go" aria-hidden="true">›</span>
+          </a>
+        </div>
+        <div class="reveal" style="--d:.2s">
+          <a class="soc dc panel" href="https://discord.gg/hF6JbP63Xd" target="_blank" rel="noopener noreferrer" aria-label="SwiebaClient na Discordzie">
+            <span class="ic" aria-hidden="true">💬</span>
+            <h3>Discord</h3>
+            <span class="go" aria-hidden="true">›</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="faq">
+    <div class="wrap" style="max-width:860px">
+      <h2 class="title reveal">Najczęstsze pytania</h2>
+      <p class="sub reveal">Nie znalazłeś odpowiedzi? Napisz do nas na Discordzie.</p>
+      <details class="panel reveal"><summary>Jak odbiorę klienta po zakupie?</summary><p>Po opłaceniu zamówienia przez Stripe dołącz na nasz serwer Discord, otwórz ticket i odbierz swój produkt.</p></details>
+      <details class="panel reveal"><summary>Na jaką wersję Minecrafta jest SwiebaClient?</summary><p>SwiebaClient to klient do Minecrafta w wersji 1.8.9.</p></details>
+      <details class="panel reveal"><summary>Co dostanę w produkcie Config?</summary><p>Tworzymy config specjalnie dla Ciebie, z dowolnymi ustawieniami, które wybierzesz.</p></details>
+      <details class="panel reveal"><summary>Czy dostęp do klienta jest na zawsze?</summary><p>Tak. Swieba Client kupujesz jednorazowo i dostajesz pełny dostęp na zawsze.</p></details>
+      <details class="panel reveal"><summary>Gdzie mogę zadać pytanie?</summary><p>Dołącz na nasz serwer Discord – tam odpowiadamy na pytania i pomagamy z konfiguracją.</p></details>
+      <details class="panel reveal"><summary>Czy płatność jest bezpieczna?</summary><p>Tak. Płatności obsługuje Stripe – dane płatności trafiają bezpośrednio do Stripe, a nie na naszą stronę.</p></details>
+    </div>
+  </section>
+</section>
+
+<!-- ====================== PRODUKT: SWIEBA CLIENT ====================== -->
+<section class="page" data-route="swiebaclient" hidden>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Okruszki"><a href="#/">Strona główna</a> / <a href="#/" data-scroll="produkty">Oferta</a> / <span>Swieba Client</span></nav>
+    <div class="product">
+      <div class="product-visual panel">
+        <div class="drag-stage"><span data-cube="diamondSC" data-size="190" data-free></span></div>
+        <p class="hint">Przeciągnij blok, aby go obrócić</p>
+      </div>
+      <div class="product-info">
+        <p class="eyebrow">Klient · Pełny dostęp</p>
+        <h1>Swieba Client</h1>
+        <p class="price-big">30 zł<small>jednorazowo</small></p>
+        <p class="res-big">Wersja Minecrafta: <b>1.8.9</b></p>
+        <p class="lead">Profesjonalny klient do Minecrafta 1.8.9 z szybkim działaniem, intuicyjnymi modami i konfigurowalnymi opcjami. Kupujesz raz i masz go na zawsze.</p>
+        <h2>Co dostajesz</h2>
+        <ul class="checks">
+          <li>Pełny dostęp do klienta</li>
+          <li>Modyfikacje (mody) dla Minecrafta 1.8.9</li>
+          <li>Szybkie działanie i konfigurowalne opcje</li>
+          <li>Wsparcie i aktualizacje od twórców</li>
+          <li>Dostęp na zawsze</li>
+        </ul>
+        <a class="btn big" data-stripe="swiebaclient" href="#">Kup za 30 zł</a>
+        <p class="secure">Bezpieczna płatność przez Stripe.</p>
+      </div>
+    </div>
+    <div class="others">
+      <h2>Zobacz też</h2>
+      <div class="mini">
+        <a class="panel" href="#/config"><span>Config</span><span class="p">10 zł</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== PRODUKT: CONFIG ====================== -->
+<section class="page" data-route="config" hidden>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Okruszki"><a href="#/">Strona główna</a> / <a href="#/" data-scroll="produkty">Oferta</a> / <span>Config</span></nav>
+    <div class="product">
+      <div class="product-visual panel">
+        <div class="drag-stage"><span data-cube="lapisCFG" data-size="190" data-free></span></div>
+        <p class="hint">Przeciągnij blok, aby go obrócić</p>
+      </div>
+      <div class="product-info">
+        <p class="eyebrow">Config · Dla Ciebie</p>
+        <h1>Config</h1>
+        <p class="price-big">10 zł<small>jednorazowo</small></p>
+        <p class="res-big">Ustawienia: <b>dowolne</b></p>
+        <p class="lead">Nie chcesz ustawiać wszystkiego samemu? Przygotujemy config specjalnie dla Ciebie, z dowolnymi ustawieniami, które wybierzesz.</p>
+        <h2>Co dostajesz</h2>
+        <ul class="checks">
+          <li>Config stworzony specjalnie dla Ciebie</li>
+          <li>Dowolne ustawienia – ustalasz je z nami</li>
+          <li>Odbiór przez ticket na naszym Discordzie</li>
+        </ul>
+        <a class="btn big" data-stripe="config" href="#">Kup za 10 zł</a>
+        <p class="secure">Bezpieczna płatność przez Stripe.</p>
+      </div>
+    </div>
+    <div class="others">
+      <h2>Zobacz też</h2>
+      <div class="mini">
+        <a class="panel" href="#/swiebaclient"><span>Swieba Client</span><span class="p">30 zł</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="ground" aria-hidden="true"></div>
+<footer>
+  <div class="wrap">
+    <div>
+      <h2>SwiebaClient</h2>
+      <p style="margin:0">&copy; 2026 SwiebaClient. Wszystkie prawa zastrzeżone.</p>
+      <small>Strona nie jest oficjalnym produktem Mojang Studios ani Microsoft. Minecraft jest znakiem towarowym Mojang Studios.</small>
+    </div>
+  </div>
+</footer>
+
+<aside class="scene" id="scene" aria-label="Swieba – pomoc na Discordzie">
+  <div class="couch" aria-hidden="true"><i class="c-back"></i><i class="c-seat"></i><i class="c-cush"></i><i class="c-pillow"></i></div>
+  <div class="rope" id="rope" aria-hidden="true"></div>
+  <div class="char" id="char" role="button" tabindex="0" aria-label="Skin Swieba – kliknij, aby pokazać przycisk Discorda"></div>
+  <button type="button" class="bubble" id="bubble">Masz jakieś pytania? Dołącz na Discorda! <span>Kliknij mnie</span></button>
+  <a class="btn discord hold-btn" id="holdBtn" href="https://discord.gg/hF6JbP63Xd" target="_blank" rel="noopener noreferrer" tabindex="-1">Wejdź na nasz Discord</a>
+</aside>
+
+<div class="modal" id="payModal" hidden role="dialog" aria-modal="true" aria-labelledby="payTitle">
+  <div class="modal-box panel">
+    <button class="modal-x" type="button" data-close aria-label="Zamknij">×</button>
+    <h2 id="payTitle">Zakup</h2>
+    <p class="modal-sub" id="payProduct"></p>
+    <input class="nick" type="text" id="nickInput" placeholder="Nick z Minecraft" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="16" aria-label="Nick z Minecraft">
+    <p class="err" id="nickErr" role="alert"></p>
+    <button class="btn pay-opt" type="button" id="payGo">Potwierdź i zapłać</button>
+    <p class="modal-note">Przejdziesz do bezpiecznej płatności Stripe.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+var STRIPE_LINKS = {
+  swiebaclient: 'https://buy.stripe.com/fZu6oA5vM6uI2Xr44O1Nu02',
+  config:       'https://buy.stripe.com/fZudR2cYecT6fKdcBk1Nu04'
+};
+
+var META = {
+  home:{ title:'SwiebaClient – klient do Minecraft 1.8.9 i BedWars | Swieba Client',
+         desc:'SwiebaClient – profesjonalny klient do Minecrafta 1.8.9 dla graczy BedWars. Szybkie działanie, intuicyjne mody, configi i wsparcie na Discordzie. Swieba Client 30 zł, Config 10 zł.' },
+  swiebaclient:{ title:'Swieba Client – 30 zł | SwiebaClient',
+         desc:'Swieba Client do Minecrafta 1.8.9 za 30 zł: pełny dostęp, modyfikacje, szybkie działanie, wsparcie i aktualizacje. Dostęp na zawsze. Płatność przez Stripe.' },
+  config:{ title:'Config – 10 zł | SwiebaClient',
+         desc:'Config do Minecrafta 1.8.9 za 10 zł: tworzymy config specjalnie dla Ciebie, z dowolnymi ustawieniami. Płatność przez Stripe.' }
+};
+var PRODUCT_ROUTES = ['swiebaclient','config'];
+
+var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- GENEROWANIE TEKSTUR 16x16 ---------- */
+function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+var FN={};
+function makeTex(seed,fn){
+  FN[seed]=fn;
+  var c=document.createElement('canvas');c.width=c.height=16;
+  var x=c.getContext('2d'),r=rng(seed);
+  for(var j=0;j<16;j++)for(var i=0;i<16;i++){x.fillStyle=fn(i,j,r);x.fillRect(i,j,1,1);}
+  return c.toDataURL('image/png');
+}
+function pk(a,r){return a[(r()*a.length)|0];}
+var DIRT=['#7a5636','#6b4a2e','#85603c','#5e4128','#70502f'];
+var GRASS=['#5b8c3a','#4f7f33','#679a42','#58873a','#6aa346'];
+var depthRng=rng(77), DEPTH=[];
+for(var d=0;d<16;d++){DEPTH.push(3+(depthRng()<.45?1:0)+(depthRng()<.2?1:0));}
+
+var T={
+  grassTop:  makeTex(1,function(i,j,r){return pk(GRASS,r);}),
+  grassSide: makeTex(2,function(i,j,r){return j<DEPTH[i]?pk(GRASS,r):pk(DIRT,r);}),
+  dirt:      makeTex(3,function(i,j,r){return pk(DIRT,r);}),
+  stone:     makeTex(4,function(i,j,r){return r()<.07?pk(['#4fd3e6','#2fa8c4'],r):pk(['#5d6478','#656c80','#555c70','#6e7589'],r);}),
+  diamond:   makeTex(5,function(i,j,r){
+               if(((i+j)%5===0)&&r()<.7)return pk(['#d2fffb','#a8f7f0'],r);
+               return r()<.06?'#e6fffd':pk(['#3fd2c9','#4fe6d9','#35c4bc','#5ff0e2','#2fb8b0'],r);}),
+  lapis:     makeTex(7,function(i,j,r){
+               if(((i*2+j)%7===0)&&r()<.7)return pk(['#8fb4ff','#6c9cff'],r);
+               return r()<.06?'#b9d0ff':pk(['#1f4fc4','#2a5fd6','#1a43a8','#3a70e0','#2455c9'],r);}),
+  obsidian:  makeTex(6,function(i,j,r){
+               var vein=(i%5===2&&j>2&&j<14&&r()<.75)||r()<.08;
+               return vein?pk(['#2b6cff','#5aa2ff','#1c4fc4'],r):pk(['#0f1a2e','#0b1426','#12203a','#0a1220'],r);})
+};
+/* ---------- NAPISY NA BLOKACH (SC / CFG) ---------- */
+var GLY={
+  S:['111','100','111','001','111'],
+  C:['111','100','100','100','111'],
+  F:['111','100','111','100','100'],
+  G:['111','100','101','101','111']
+};
+function labelFn(base,text){
+  var w=text.length*4-1,x0=Math.round((16-w)/2),y0=5,lit={},sh={};
+  text.split('').forEach(function(ch,k){
+    GLY[ch].forEach(function(row,y){
+      for(var x=0;x<3;x++)if(row.charAt(x)==='1'){
+        var px=x0+k*4+x,py=y0+y;
+        lit[px+','+py]=1;sh[(px+1)+','+(py+1)]=1;
+      }
+    });
+  });
+  return function(i,j,r){
+    var c=base(i,j,r),k=i+','+j;
+    return lit[k]?'#ffffff':(sh[k]?'#0a2a52':c);
+  };
+}
+var baseDiamond=FN[5],baseLapis=FN[7];
+T.diamondSC=makeTex(5,labelFn(baseDiamond,'SC'));
+T.lapisCFG=makeTex(7,labelFn(baseLapis,'CFG'));
+
+var SETS={
+  grass:{top:T.grassTop,side:T.grassSide,bottom:T.dirt},
+  stone:{top:T.stone,side:T.stone,bottom:T.stone},
+  diamond:{top:T.diamond,side:T.diamond,bottom:T.diamond},
+  lapis:{top:T.lapis,side:T.lapis,bottom:T.lapis},
+  diamondSC:{top:T.diamondSC,side:T.diamondSC,bottom:T.diamond},
+  lapisCFG:{top:T.lapisCFG,side:T.lapisCFG,bottom:T.lapis},
+  obsidian:{top:T.obsidian,side:T.obsidian,bottom:T.obsidian}
+};
+var root=document.documentElement;
+root.style.setProperty('--tx-grass-side','url("'+T.grassSide+'")');
+root.style.setProperty('--tx-dirt','url("'+T.dirt+'")');
+
+/* ---------- BUDOWA BLOKU 3D ---------- */
+function cube(size,set){
+  var w=document.createElement('div');w.className='cube';w.style.setProperty('--s',size+'px');
+  [['top',set.top],['front',set.side],['right',set.side],['left',set.side],['back',set.side],['bottom',set.bottom]].forEach(function(p){
+    var f=document.createElement('i');f.className='face f-'+p[0];f.style.backgroundImage='url("'+p[1]+'")';w.appendChild(f);
+  });
+  return w;
+}
+var frees=[];
+document.querySelectorAll('[data-cube]').forEach(function(el){
+  var s=+el.dataset.size||100;
+  el.classList.add('cube-slot');el.style.setProperty('--slot',s+'px');
+  var c=cube(s,SETS[el.dataset.cube]);
+  if(el.hasAttribute('data-free')){c.classList.add('free');frees.push({el:c,ry:-35,vel:.35,drag:false});}
+  el.appendChild(c);
+});
+
+/* ---------- OBRACANIE BLOKU NA PODSTRONIE ---------- */
+document.querySelectorAll('.drag-stage').forEach(function(st){
+  var f=frees.filter(function(x){return st.contains(x.el);})[0];if(!f)return;
+  var sx=0;
+  st.addEventListener('pointerdown',function(e){f.drag=true;sx=e.clientX;st.classList.add('grabbing');try{st.setPointerCapture(e.pointerId);}catch(_){}});
+  st.addEventListener('pointermove',function(e){if(!f.drag)return;f.ry+=(e.clientX-sx)*0.6;sx=e.clientX;});
+  ['pointerup','pointercancel','pointerleave'].forEach(function(t){st.addEventListener(t,function(){f.drag=false;st.classList.remove('grabbing');});});
+});
+(function tick(){
+  if(!document.hidden){
+    frees.forEach(function(f){
+      if(!f.el.offsetParent)return;
+      if(!f.drag&&!reduce)f.ry+=f.vel;
+      f.el.style.transform='rotateX(-24deg) rotateY('+f.ry+'deg)';
+    });
+  }
+  requestAnimationFrame(tick);
+})();
+
+/* ---------- GWIAZDY I CHMURY ---------- */
+(function(){
+  var sky=document.getElementById('sky');
+  var n=innerWidth<640?24:40;
+  for(var i=0;i<n;i++){
+    var s=document.createElement('i');s.className='star';
+    var z=2+((Math.random()*3)|0);
+    s.style.cssText='left:'+(Math.random()*100)+'%;top:'+(Math.random()*70)+'%;width:'+z+'px;height:'+z+'px;animation-delay:'+(-Math.random()*3)+'s;animation-duration:'+(2+Math.random()*3)+'s';
+    sky.appendChild(s);
+  }
+  [[18,95,0],[40,140,-60],[62,110,-30]].forEach(function(c){
+    var d=document.createElement('div');d.className='cloud';
+    d.style.cssText='top:'+c[0]+'%;animation-duration:'+c[1]+'s;animation-delay:'+c[2]+'s;transform:scale('+(0.8+Math.random()*.9)+')';
+    sky.appendChild(d);
+  });
+})();
+
+/* ---------- PRZEJŚCIE: ZASŁONA Z BLOKÓW ---------- */
+var curtain=document.getElementById('curtain');
+function buildCurtain(){
+  curtain.innerHTML='';
+  var cols=innerWidth<640?6:11, size=Math.ceil(innerWidth/cols), rows=Math.ceil(innerHeight/size), cells=[];
+  curtain.style.gridTemplateColumns='repeat('+cols+',1fr)';
+  curtain.style.gridTemplateRows='repeat('+rows+','+size+'px)';
+  var pool=[T.obsidian,T.obsidian,T.lapis,T.stone,T.obsidian,T.diamond];
+  for(var r=0;r<rows;r++)for(var c=0;c<cols;c++){
+    var d=document.createElement('i');
+    d.style.backgroundImage='url("'+pool[(Math.random()*pool.length)|0]+'")';
+    d.style.transform='scale(0)';
+    curtain.appendChild(d);cells.push({d:d,r:r,c:c,rows:rows,cols:cols});
+  }
+  return cells;
+}
+function cover(){
+  var cells=buildCurtain();curtain.style.pointerEvents='auto';
+  var anims=cells.map(function(o){
+    return o.d.animate([{transform:'scale(0)'},{transform:'scale(1.04)'}],
+      {duration:300,delay:(o.r+o.c)*34+Math.random()*70,fill:'forwards',easing:'cubic-bezier(.2,.8,.3,1)'}).finished;
+  });
+  return Promise.all(anims).then(function(){return cells;});
+}
+function uncover(cells){
+  var anims=cells.map(function(o){
+    return o.d.animate([{transform:'scale(1.04)'},{transform:'scale(0)'}],
+      {duration:300,delay:((o.rows-o.r)+(o.cols-o.c))*34+Math.random()*70,fill:'forwards',easing:'cubic-bezier(.6,0,.8,.4)'}).finished;
+  });
+  return Promise.all(anims).then(function(){curtain.innerHTML='';curtain.style.pointerEvents='none';});
+}
+
+/* ---------- SPADAJĄCE DIAMENTOWE MIECZYKI ---------- */
+/* sprite diamentowego miecza (16x16, od użytkownika) – czubek skierowany w lewy górny róg */
+var SWORD='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAt0lEQVR42mNk8HX4zwADmw8wMpAMfB3+y77c9j/l/63/KIYRCZgYGBgY3MVUGHa+usOQsmkWAzmGMDD4OvxP+X+LIpcMJUN8HYgwGJchvg7/GRJSiHQZNkOmL8fQzITTgM0HGOf4pcGjmHwA8zMW2/G7AKZZWIWBwSudgWHbTIZejicMsQ7mKIYwEtT89g7cS3bqyv/99RgZLrwWZlh84CQjYQOwZDCYIcU/ZCgMF2iYMJJtABQAAFF2k/U5iLbTAAAAAElFTkSuQmCC';
+root.style.setProperty('--tx-sword','url("'+SWORD+'")');
+
+var drops=document.getElementById('drops');
+function dropSwords(){
+  drops.innerHTML='';
+  if(reduce)return;
+  var n=innerWidth<640?10:18, H=innerHeight;
+  for(var k=0;k<n;k++){
+    (function(){
+      var size=46+((Math.random()*44)|0);
+      var w=document.createElement('div');w.className='sword';
+      w.style.width=w.style.height=size+'px';
+      w.style.left=(Math.random()*(innerWidth-size))+'px';
+      drops.appendChild(w);
+      var land=H-size*1.05-Math.random()*30, from=-size*2.2;
+      var delay=Math.random()*1300, dur=1000+Math.random()*800;
+      var a1=225+(Math.random()*50-25);                       // czubek w dół (sprite celuje w lewy górny róg), lekko krzywo
+      var a0=a1+(Math.random()<.5?-1:1)*(180+Math.random()*180); // obrót w locie
+      w.animate([
+        {transform:'translateY('+from+'px) rotate('+a0+'deg)',easing:'cubic-bezier(.5,0,.9,.55)'},
+        {transform:'translateY('+land+'px) rotate('+a1+'deg)',offset:.72,easing:'cubic-bezier(.2,.7,.4,1)'},
+        {transform:'translateY('+(land-size*.14)+'px) rotate('+(a1+5)+'deg)',offset:.84,easing:'cubic-bezier(.6,0,.9,.4)'},
+        {transform:'translateY('+land+'px) rotate('+a1+'deg)'}
+      ],{duration:dur,delay:delay,fill:'both'});
+      w.animate([{opacity:1},{opacity:0}],{delay:delay+dur+1500,duration:700,fill:'forwards'})
+        .finished.then(function(){w.remove();}).catch(function(){});
+    })();
+  }
+}
+
+/* ---------- ROUTER (hash) ---------- */
+var sections=[].slice.call(document.querySelectorAll('[data-route]'));
+var current=null,busy=false,queued=null,pendingScroll=null;
+
+function routeFromHash(){var h=location.hash.replace(/^#\/?/,'');return META[h]?h:'home';}
+function setMeta(sel,val){var m=document.querySelector(sel);if(m)m.setAttribute('content',val);}
+function show(route){
+  sections.forEach(function(s){s.hidden=s.dataset.route!==route;});
+  current=route;
+  var m=META[route];
+  document.title=m.title;
+  setMeta('meta[name="description"]',m.desc);
+  setMeta('meta[property="og:title"]',m.title);
+  setMeta('meta[property="og:description"]',m.desc);
+  setMeta('meta[name="twitter:title"]',m.title);
+  setMeta('meta[name="twitter:description"]',m.desc);
+}
+function scrollToId(id,instant){
+  if(id==='top'){window.scrollTo({top:0,behavior:instant||reduce?'auto':'smooth'});return;}
+  var el=document.getElementById(id);
+  if(el)el.scrollIntoView({behavior:instant||reduce?'auto':'smooth',block:'start'});
+}
+function go(route,first){
+  if(busy){queued=route;return;}
+  busy=true;
+  var animate=!first&&!reduce;
+  var p=animate?cover():Promise.resolve(null);
+  p.then(function(cells){
+    show(route);
+    if(pendingScroll){scrollToId(pendingScroll,true);pendingScroll=null;}
+    else window.scrollTo({top:0,behavior:'auto'});
+    drops.innerHTML='';
+    if(!first&&PRODUCT_ROUTES.indexOf(route)>-1)dropSwords();
+    return animate?uncover(cells):null;
+  }).then(function(){
+    busy=false;
+    if(queued&&queued!==current){var q=queued;queued=null;go(q);}else queued=null;
+  });
+}
+function navigate(route){
+  var h=route==='home'?'#/':'#/'+route;
+  try{if(location.hash!==h)history.pushState(null,'',h);}catch(_){}
+  if(route!==current||busy)go(route);
+}
+function onNav(){
+  var r=routeFromHash();
+  if(r!==current||busy)go(r);
+}
+window.addEventListener('hashchange',onNav);
+window.addEventListener('popstate',onNav);
+
+/* ---------- OKNO ZAKUPU (nick + Stripe) ---------- */
+var payModal=document.getElementById('payModal');
+var nickInput=document.getElementById('nickInput');
+var nickErr=document.getElementById('nickErr');
+var selectedKey='',lastFocus=null;
+function openPay(key,label){
+  selectedKey=key;lastFocus=document.activeElement;
+  document.getElementById('payProduct').textContent=label;
+  nickErr.textContent='';
+  payModal.hidden=false;document.body.style.overflow='hidden';
+  setTimeout(function(){nickInput.focus();},50);
+}
+function closePay(){
+  payModal.hidden=true;document.body.style.overflow='';
+  if(lastFocus&&lastFocus.focus)lastFocus.focus();
+}
+function pay(){
+  var nick=nickInput.value.trim();
+  if(!/^[A-Za-z0-9_]{3,16}$/.test(nick)){
+    nickErr.textContent='Wpisz poprawny nick (3–16 znaków: litery, cyfry, _).';
+    nickInput.focus();return;
+  }
+  var url=STRIPE_LINKS[selectedKey];if(!url)return;
+  // client_reference_id pokazuje nick przy płatności w panelu Stripe
+  window.location.href=url+'?client_reference_id='+encodeURIComponent(nick);
+}
+payModal.addEventListener('click',function(e){if(e.target===payModal||e.target.hasAttribute('data-close'))closePay();});
+document.getElementById('payGo').addEventListener('click',pay);
+nickInput.addEventListener('keydown',function(e){if(e.key==='Enter')pay();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!payModal.hidden)closePay();});
+
+/* ---------- KLIKNIĘCIA: przewijanie, zakup ---------- */
+document.querySelectorAll('[data-stripe]').forEach(function(a){a.setAttribute('role','button');});
+document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a');if(!a)return;
+  if(a.dataset.stripe){
+    e.preventDefault();
+    var info=a.closest('.product-info');
+    openPay(a.dataset.stripe,(info?info.querySelector('h1').textContent:'')+' – '+a.textContent.replace('Kup za ',''));
+    return;
+  }
+  if(e.defaultPrevented||e.button>0||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;
+  var sc=a.dataset.scroll;
+  if(sc){
+    e.preventDefault();
+    if(current==='home'){scrollToId(sc);}
+    else{pendingScroll=sc;navigate('home');}
+    return;
+  }
+  // Linki do podstron (#/swiebaclient, #/config...) – działają bez przeładowania strony
+  var href=a.getAttribute('href')||'';
+  if(href.indexOf('#/')===0&&!a.target){
+    e.preventDefault();
+    var r=href.replace(/^#\/?/,'');
+    navigate(META[r]?r:'home');
+  }
+});
+
+/* ---------- ANIMACJE PRZY PRZEWIJANIU ---------- */
+var revealEls=[].slice.call(document.querySelectorAll('.reveal'));
+if('IntersectionObserver' in window&&!reduce){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+  },{threshold:.12});
+  revealEls.forEach(function(el){io.observe(el);});
+}else{revealEls.forEach(function(el){el.classList.add('in');});}
+
+/* ---------- WYRÓWNANIE Ą / Ę W PIKSELOWYCH CZCIONKACH ---------- */
+(function fixOgonek(){
+  if(!document.fonts||!document.fonts.load)return;
+  var FONTS=['Press Start 2P','VT323'];
+  var PAIRS=[['ą','a'],['ę','e'],['Ą','A'],['Ę','E']];
+  var cv=document.createElement('canvas').getContext('2d');
+  function measure(font){
+    var o={},any=false;
+    cv.font='100px "'+font+'"';
+    PAIRS.forEach(function(p){
+      var a=cv.measureText(p[0]),b=cv.measureText(p[1]);
+      if(a.actualBoundingBoxAscent===undefined)return;
+      // o>0: litera z ogonkiem stoi za wysoko względem zwykłej – przesuwamy w dół
+      var d=(a.actualBoundingBoxAscent-b.actualBoundingBoxAscent)/100;
+      if(Math.abs(d)>=.015&&Math.abs(d)<=.3){o[p[0]]=d;any=true;}
+    });
+    return any?o:null;
+  }
+  Promise.all(FONTS.map(function(f){return document.fonts.load('100px "'+f+'"','ąęĄĘaeAE');})).then(function(){
+    var offs={},has=false;
+    FONTS.forEach(function(f){var m=measure(f);if(m){offs[f]=m;has=true;}});
+    if(!has)return;
+    var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null),nodes=[];
+    while(w.nextNode())nodes.push(w.currentNode);
+    nodes.forEach(function(n){
+      var p=n.parentNode;
+      if(!p||/^(SCRIPT|STYLE|NOSCRIPT|TEXTAREA)$/.test(p.nodeName))return;
+      if(!/[ąęĄĘ]/.test(n.nodeValue))return;
+      var ff=getComputedStyle(p).fontFamily,key=null;
+      FONTS.forEach(function(f){if(!key&&ff.indexOf(f)>-1)key=f;});
+      var o=key&&offs[key];if(!o)return;
+      var frag=document.createDocumentFragment();
+      n.nodeValue.split(/([ąęĄĘ])/).forEach(function(part){
+        if(!part)return;
+        if(o[part]){
+          var s=document.createElement('span');
+          s.className='pl';s.style.top=o[part]+'em';s.textContent=part;
+          frag.appendChild(s);
+        }else frag.appendChild(document.createTextNode(part));
+      });
+      p.replaceChild(frag,n);
+    });
+  }).catch(function(){});
+})();
+
+/* ---------- SCENA: SKIN SWIEBA NA LIANIE I KANAPIE ---------- */
+(function swiebaScene(){
+  var scene=document.getElementById('scene');
+  if(!scene)return;
+  var SKIN='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';
+  var rope=document.getElementById('rope'),root=document.getElementById('char'),
+      bubble=document.getElementById('bubble'),holdBtn=document.getElementById('holdBtn');
+  var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ARM=10.4,TH0=-92*Math.PI/180,TH1=42*Math.PI/180,T1=2.3,T2=1,TB=.4;
+  var k=0,W=0,H=0,floorY=0,seatY=0,Os={x:0,y:0},Px=0,Py=0,L=0,parts={},hand=null;
+  var raf=0,t0=0,played=false,ready=false,holding=false,P={rz:210,lz:-210,rx:0,lx:0,leg:18};
+  scene.style.setProperty('--skin','url("data:image/png;base64,'+SKIN+'")');
+  scene.style.setProperty('--skh',64);
+
+  function box(w,h,d,tx,ty,flat){
+    var W2=w*k,H2=h*k,D2=d*k,el=document.createElement('div');
+    el.className='box';el.style.width=W2+'px';el.style.height=H2+'px';
+    function face(fw,fh,u,v,css,sh){
+      var f=document.createElement('i');f.className='fc';
+      f.style.cssText='width:'+fw*k+'px;height:'+fh*k+'px;background-position:'+(-u*k)+'px '+(-v*k)+'px;--sh:'+(flat?0:sh)+';'+css;
+      el.appendChild(f);
+    }
+    face(w,h,tx+d,ty+d,'left:0;top:0;transform:translateZ('+D2/2+'px)',0);
+    face(w,h,tx+2*d+w,ty+d,'left:0;top:0;transform:rotateY(180deg) translateZ('+D2/2+'px)',.38);
+    face(d,h,tx,ty+d,'left:'+(W2-D2)/2+'px;top:0;transform:rotateY(-90deg) translateZ('+W2/2+'px)',.22);
+    face(d,h,tx+d+w,ty+d,'left:'+(W2-D2)/2+'px;top:0;transform:rotateY(90deg) translateZ('+W2/2+'px)',.22);
+    face(w,d,tx+d,ty,'left:0;top:'+(-D2/2)+'px;transform:rotateX(90deg)',0);
+    face(w,d,tx+d+w,ty,'left:0;top:'+(H2-D2/2)+'px;transform:rotateX(-90deg)',.5);
+    return el;
+  }
+  function part(x,y,w,h,d,tx,ty,otx,oty,origin){
+    var p=document.createElement('div');p.className='pt';
+    p.style.cssText='left:'+x*k+'px;top:'+y*k+'px;width:'+w*k+'px;height:'+h*k+'px;transform-origin:'+origin;
+    p.appendChild(box(w,h,d,tx,ty));
+    var o=box(w,h,d,otx,oty,true);
+    o.style.transform='scale3d('+(w+.5)/w+','+(h+.5)/h+','+(d+.5)/d+')';
+    p.appendChild(o);root.appendChild(p);return p;
+  }
+  function build(){
+    root.innerHTML='';parts={};
+    parts.legR=part(-4,12,4,12,4,0,16,0,32,'50% 0');
+    parts.legL=part(0,12,4,12,4,16,48,0,48,'50% 0');
+    parts.body=part(-4,0,8,12,4,16,16,16,32,'50% 0');
+    parts.armR=part(-8,0,4,12,4,40,16,40,32,'50% 0');
+    parts.armL=part(4,0,4,12,4,32,48,48,48,'50% 0');
+    parts.head=part(-4,-8,8,8,8,0,0,32,0,'50% 100%');
+    hand=document.createElement('i');hand.className='hand';parts.armR.appendChild(hand);
+  }
+  function layout(){
+    W=scene.clientWidth||innerWidth;H=scene.clientHeight||innerHeight;
+    var nk=W<900?4:5;
+    scene.style.setProperty('--k',nk+'px');
+    if(nk!==k){k=nk;build();}
+    var x0=Math.max(0,W-28*k);                      // kanapa przy prawej krawędzi ekranu
+    scene.style.setProperty('--x0',x0+'px');
+    seatY=H-9*k;
+    Os={x:x0+15*k,y:seatY-14*k};
+    Py=-8*k;
+    var R=Math.max(ARM*k+120,Math.min(H-20*k-Py,W*.95,1100));
+    L=R-ARM*k;
+    Px=Os.x-4*k-R*Math.sin(TH1);                    // lina wisi z góry ekranu; zeskok tuż nad kanapę
+    rope.style.height=L+'px';
+  }
+  function pose(){
+    parts.armR.style.transform='rotateZ('+P.rz+'deg) rotateX('+P.rx+'deg)';
+    parts.armL.style.transform='rotateZ('+P.lz+'deg) rotateX('+P.lx+'deg)';
+    parts.legR.style.transform='rotateX('+P.leg+'deg)';
+    parts.legL.style.transform='rotateX('+P.leg+'deg)';
+  }
+  function place(x,y,th){
+    root.style.transform='translate('+x+'px,'+y+'px) rotate('+(-th)+'rad) perspective('+80*k+'px) rotateX(-10deg) rotateY(-50deg)';
+  }
+  function ropeAt(th){rope.style.transform='translate('+Px+'px,'+Py+'px) rotate('+(-th)+'rad)';}
+  function ropeFree(tr){return TH1*Math.exp(-.8*tr)*Math.cos(2*Math.PI*tr/2.8);}
+  function lerp(a,b,s){return a+(b-a)*s;}
+  var bubbleOff=false,bt=0;
+  function hideBubble(){bubbleOff=true;clearTimeout(bt);bubble.classList.remove('show');}
+  function showBubble(){                       // dymek znika sam, jeśli nikt w niego nie kliknie
+    if(bubbleOff)return;
+    bubble.classList.add('show');placeBubble();
+    if(!bt)bt=setTimeout(hideBubble,9000);
+  }
+  function placeBubble(){
+    var bw=bubble.offsetWidth,bh=bubble.offsetHeight;
+    var left=Math.max(8,Math.min(W-bw-8,Os.x-bw+3*k));   // dymek nad głową, sięga w stronę środka ekranu
+    var top=Math.max(8,Os.y-8*k-bh-18);
+    bubble.style.left=left+'px';bubble.style.top=top+'px';
+    bubble.style.setProperty('--tail',Math.max(14,Math.min(bw-34,Os.x-left))+'px');
+  }
+  function sit(){P.rz=0;P.lz=0;P.rx=35;P.lx=35;P.leg=90;}
+
+  function frame(now){
+    var t=(now-t0)/1000,s,th,a,y;
+    if(t<T1){
+      s=t/T1;th=TH0+(TH1-TH0)*(1-Math.cos(Math.PI*s))/2;
+      a={x:Px+(L+ARM*k)*Math.sin(th),y:Py+(L+ARM*k)*Math.cos(th)};
+      P={rz:210,lz:-210,rx:0,lx:0,leg:18+14*Math.sin(s*Math.PI*3)};
+      ropeAt(th);place(a.x,a.y,th);pose();
+    }else if(t<T1+T2){
+      s=(t-T1)/T2;
+      a={x:Px+(L+ARM*k)*Math.sin(TH1),y:Py+(L+ARM*k)*Math.cos(TH1)};
+      var ex=1-Math.pow(1-s,2);
+      th=TH1*Math.pow(1-s,2);
+      P={rz:210*(1-ex),lz:-210*(1-ex),rx:35*ex,lx:35*ex,leg:lerp(18,90,ex)};
+      ropeAt(ropeFree(t-T1));
+      place(lerp(a.x,Os.x,ex),lerp(a.y,Os.y,s*s)-3*k*Math.sin(Math.PI*s),th);pose();
+    }else{
+      var u=t-T1-T2;
+      if(!ready){ready=true;showBubble();}
+      if(!holding)sit();
+      y=Os.y-(u<TB?1.4*k*Math.sin(Math.PI*u/TB)*(1-u/TB):0);
+      ropeAt(ropeFree(t-T1));place(Os.x,y,0);pose();
+      if(u>3.2){rope.classList.add('gone');return;}   // lina znika, żeby nie zasłaniała strony
+    }
+    raf=requestAnimationFrame(frame);
+  }
+  function settle(){
+    ready=true;sit();rope.classList.add('gone');place(Os.x,Os.y,0);pose();
+    showBubble();
+  }
+  function start(){
+    if(played)return;played=true;layout();scene.classList.add('on');
+    if(rm){settle();return;}
+    t0=performance.now();raf=requestAnimationFrame(frame);
+  }
+
+  function showBtn(){
+    var sr=scene.getBoundingClientRect(),hr=hand.getBoundingClientRect();
+    var bw=holdBtn.offsetWidth,bh=holdBtn.offsetHeight;
+    var hx=hr.left-sr.left+hr.width/2,hy=hr.top-sr.top+hr.height/2,left,top,org;
+    if(hx-bw-14>=8){left=hx-bw-8;top=hy-bh/2;org='100% 50%';}            // Swieba siedzi w rogu: przycisk wychodzi z dłoni w lewo
+    else if(hx+bw+14<=W-8){left=hx+8;top=hy-bh/2;org='0 50%';}
+    else{left=Math.max(8,Math.min(W-bw-8,Os.x-bw/2));top=Os.y-8*k-bh-18;org='50% 100%';}
+    top=Math.max(8,Math.min(H-bh-8,top));
+    holdBtn.style.transformOrigin=org;
+    holdBtn.style.left=left+'px';holdBtn.style.top=top+'px';
+    holdBtn.classList.add('show');holdBtn.tabIndex=0;
+  }
+  function hold(){
+    if(!ready)return;
+    if(holding){release();return;}
+    holding=true;hideBubble();
+    if(rm){P.rx=115;pose();showBtn();return;}
+    var b0=performance.now();
+    (function step(now){
+      var s=Math.min(1,(now-b0)/550),e=1-Math.pow(1-s,3);
+      P.rx=lerp(35,115,e);pose();
+      if(s<1)requestAnimationFrame(step);else if(holding)showBtn();
+    })(b0);
+  }
+  function release(){                     // drugie kliknięcie: opuszcza rękę i chowa przycisk
+    holding=false;holdBtn.classList.remove('show');holdBtn.tabIndex=-1;
+    var b0=performance.now();
+    (function step(now){
+      var s=Math.min(1,(now-b0)/450),e=1-Math.pow(1-s,3);
+      if(holding)return;
+      P.rx=lerp(115,35,e);pose();
+      if(s<1)requestAnimationFrame(step);
+    })(b0);
+  }
+  root.addEventListener('click',hold);
+  root.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();hold();}});
+  bubble.addEventListener('click',hold);
+
+  var rt;
+  window.addEventListener('resize',function(){
+    if(!played)return;
+    clearTimeout(rt);
+    rt=setTimeout(function(){
+      cancelAnimationFrame(raf);layout();settle();
+      if(holding){P.rx=115;pose();showBtn();}
+    },200);
+  });
+  layout();
+  // Swieba przylatuje dopiero, gdy zniknie ekran ładowania
+  (function waitLoader(n){
+    if(!document.getElementById('loader')||n>60){setTimeout(start,rm?0:500);return;}
+    setTimeout(function(){waitLoader(n+1);},150);
+  })(0);
+  window.__scene={start:start,hold:hold};
+})();
+
+/* ---------- START ---------- */
+go(routeFromHash(),true);
+
+/* ---------- EKRAN ŁADOWANIA ---------- */
+(function intro(){
+  var L=document.getElementById('loader');
+  if(!L)return;
+  if(reduce){L.remove();return;}
+  var c=cube(110,SETS.diamond);c.classList.add('free');
+  document.getElementById('ldCube').appendChild(c);
+  var ry=0;(function spin(){if(!L.isConnected)return;ry+=1.6;c.style.transform='rotateX(-24deg) rotateY('+ry+'deg)';requestAnimationFrame(spin);})();
+  var fill=document.getElementById('ldFill'),txt=document.getElementById('ldText');
+  var MIN=1700,t0=performance.now(),ready=false,done=false;
+  function setP(p){
+    fill.style.width=p+'%';
+    txt.textContent=p>=100?'Gotowe!':(p>55?'Generowanie bloków...':'Ładowanie świata...');
+  }
+  var loadP=new Promise(function(r){if(document.readyState==='complete')r();else window.addEventListener('load',r);});
+  var fontsP=(document.fonts&&document.fonts.ready)?document.fonts.ready:Promise.resolve();
+  Promise.all([loadP,fontsP]).then(function(){ready=true;},function(){ready=true;});
+  setTimeout(function(){ready=true;},5000);
+  function finish(){
+    if(done)return;done=true;
+    var cells=buildCurtain();
+    cells.forEach(function(o){o.d.style.transform='scale(1.04)';});
+    curtain.style.pointerEvents='auto';
+    L.remove();
+    if(PRODUCT_ROUTES.indexOf(current)>-1)dropSwords();
+    uncover(cells);
+  }
+  (function loop(){
+    if(done)return;
+    var el=performance.now()-t0,p=Math.min(92,el/MIN*92);
+    if(ready&&el>=MIN){setP(100);setTimeout(finish,380);return;}
+    setP(Math.round(p));
+    requestAnimationFrame(loop);
+  })();
+})();
+})();
+</script>
 </body>
 </html>
